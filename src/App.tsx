@@ -1,11 +1,15 @@
-import { useState } from 'react'
+
 import Nav from './component/nav'
+import TechStacks from './component/TechStacks'
+import About from './pages/Aboute'
 import Intro from './pages/Intro'
 function App() {
   return (
-    <main className=' w-full h-screen '>
-      <Nav/>
-      <Intro/>
+    <main className='w-full h-screen '>
+      <Nav />
+      <Intro />
+      <TechStacks />
+      <About/>
     </main>
   )
 }
