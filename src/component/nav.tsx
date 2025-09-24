@@ -82,13 +82,6 @@ function Nav() {
         `}>
 
           <nav className="relative flex items-center gap-2">
-            {/* Logo/Name */}
-            <div className="flex items-center mr-6">
-              <h1 className="text-lg font-bold  text-white  font-mono tracking-wider">
-                Mayur Wagh
-              </h1>
-            </div>
-
             {/* Navigation Links */}
             <div className="flex items-center gap-1">
               {navLinks.map((link, index) => {

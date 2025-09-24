@@ -5,7 +5,7 @@ import About from './pages/Aboute'
 import Intro from './pages/Intro'
 function App() {
   return (
-    <main className='w-full h-screen '>
+    <main className='w-full '>
       <Nav />
       <Intro />
       <TechStacks />

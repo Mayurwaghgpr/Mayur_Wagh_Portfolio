@@ -167,18 +167,18 @@ function TechStacks() {
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* Enhanced Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/40 to-blue-800/40 backdrop-blur-md border border-purple-500/30 px-6 py-3 rounded-full mb-8 shadow-lg shadow-purple-500/20">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/40 to-blue-800/40 backdrop-blur-md border border-purple-500/30 sm:px-6 sm:py-3 px-3 py-1.5 rounded-full mb-8 shadow-lg shadow-purple-500/20">
             <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-purple-200 tracking-wider uppercase">
+            <span className="sm:text-sm text-xs font-semibold text-purple-200 tracking-wider uppercase">
               Technology Stack
             </span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 mb-6 leading-tight">
+          <h2 className="text-lg md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 mb-6 leading-tight">
             Tech Arsenal
           </h2>
           
-          <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          <p className=" text-xs sm:text-sm text-slate-300 max-w-3xl mx-auto leading-relaxed">
             Technologies I leverage to build scalable, performant, and modern applications that solve real-world problems
           </p>
         </div>
@@ -195,8 +195,8 @@ function TechStacks() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`
-                  group px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-md
+                className={` 
+                  group sm:px-6 sm:py-3 px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-md
                   ${
                     isActive
                       ? `bg-gradient-to-r ${getCategoryGradient(category)} text-white shadow-xl ${getCategoryShadowColor(category)} border border-white/20`
@@ -205,7 +205,7 @@ function TechStacks() {
                 `}
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-base">{category}</span>
+                  <span className="sm:text-sm text-xs">{category}</span>
                   <span className={`
                     text-xs px-2 py-1 rounded-full transition-all duration-300
                     ${isActive 
@@ -222,7 +222,7 @@ function TechStacks() {
         </div>
 
         {/* Enhanced Tech Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mb-20 px-10">
           {filteredTechnologies.map((tech, idx) => (
             <div
               key={`${tech.text}-${selectedCategory}`}
@@ -237,10 +237,10 @@ function TechStacks() {
               onMouseLeave={() => setHoveredTech(null)}
             >
               {/* Main Card */}
-              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-slate-600/30 rounded-3xl p-8 shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-3 cursor-pointer overflow-hidden">
+              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-slate-600/30 rounded-3xl sm:p-8 p-4 shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-3 cursor-pointer overflow-hidden">
                 
                 {/* Category Badge */}
-                <div className={`absolute top-4 right-4 bg-gradient-to-r ${getCategoryGradient(tech.category)} text-white text-xs px-3 py-1.5 rounded-full font-medium shadow-lg opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
+                <div className={`absolute top-4 right-4 bg-gradient-to-r ${getCategoryGradient(tech.category)} text-white text-xs sm:px-3 sm:py-1.5 p-1.5 rounded-full font-medium shadow-lg opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
                   {tech.category}
                 </div>
 
@@ -258,8 +258,8 @@ function TechStacks() {
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
                     
                     {/* Main Icon */}
-                    <div className="relative bg-slate-800/60 backdrop-blur-sm rounded-2xl p-6 group-hover:bg-slate-700/60 transition-all duration-300">
-                      <span className={`text-6xl ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}>
+                    <div className="relative bg-slate-800/60 backdrop-blur-sm rounded-2xl sm:p-6 p-3 group-hover:bg-slate-700/60 transition-all duration-300">
+                      <span className={`sm:text-2xl text-xl ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}>
                         {tech.icon}
                       </span>
                     </div>
@@ -268,10 +268,10 @@ function TechStacks() {
 
                 {/* Content */}
                 <div className="relative text-center space-y-4">
-                  <h3 className="text-2xl font-bold text-slate-100 group-hover:text-white transition-colors duration-300">
+                  <h3 className="sm:text-xl text-md font-bold text-slate-100 group-hover:text-white transition-colors duration-300">
                     {tech.text}
                   </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 min-h-[2.5rem]">
+                  <p className="sm:text-sm text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 min-h-[2.5rem]">
                     {tech.description}
                   </p>
                 </div>
@@ -322,22 +322,22 @@ function TechStacks() {
                   
                   {/* Main Circle */}
                   <div className={`
-                    relative w-20 h-20 bg-gradient-to-br ${getCategoryGradient(category)} 
+                    relative sm:w-20 sm:h-20 h-10 w-10 bg-gradient-to-br ${getCategoryGradient(category)} 
                     rounded-full flex items-center justify-center mx-auto shadow-2xl 
                     group-hover:scale-110 group-hover:shadow-3xl transition-all duration-300
                     border-2 border-white/10 group-hover:border-white/20
                     ${getCategoryShadowColor(category)}
                   `}>
-                    <span className="text-3xl font-black text-white drop-shadow-lg">
+                    <span className="sm:text-3xl text-xl font-black text-white drop-shadow-lg">
                       {count}
                     </span>
                   </div>
                 </div>
-                
-                <h4 className="text-lg font-bold text-slate-200 group-hover:text-white transition-colors duration-300 mb-2">
+
+                <h4 className="sm:text-lg text-md font-bold text-slate-200 group-hover:text-white transition-colors duration-300 mb-2">
                   {category}
                 </h4>
-                <p className="text-sm text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+                <p className="sm:text-sm text-xs text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
                   {count === 1 ? 'Technology' : 'Technologies'}
                 </p>
               </div>

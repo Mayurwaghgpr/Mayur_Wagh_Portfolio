@@ -15,12 +15,7 @@ function Intro() {
 
   return (
     <section id="intro" className="relative w-screen min-h-screen overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-purple-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>
-        <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse delay-700"></div>
-        <div className="absolute bottom-1/4 left-1/2 w-80 h-80 bg-pink-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse delay-1000"></div>
-      </div>
+
       
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 opacity-5">
@@ -84,9 +79,9 @@ function Intro() {
                 absolute inset-0 transition-all duration-1000 ease-out
                 ${expand ? "opacity-100 scale-110" : "opacity-0 scale-100"}
               `}>
-                <div className="absolute inset-0 border-2 border-purple-500/50 rounded-full animate-spin" style={{animationDuration: '20s'}}></div>
-                <div className="absolute inset-2 border-2 border-blue-500/50 rounded-full animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
-                <div className="absolute inset-4 border border-pink-500/50 rounded-full animate-spin" style={{animationDuration: '10s'}}></div>
+                <div className="absolute inset-0 border-2 border-purple-500/50 rounded-full " style={{animationDuration: '20s'}}></div>
+                <div className="absolute inset-2 border-2 border-blue-500/50 rounded-full " style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
+                <div className="absolute inset-4 border border-pink-500/50 rounded-full " style={{animationDuration: '10s'}}></div>
               </div>
               
               {/* Profile Image */}
@@ -195,22 +190,6 @@ function Intro() {
                   </a>
                 </div>
               </div>
-            </div>
-            
-            {/* Floating particles effect */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-              {[...Array(6)].map((_, i) => (
-                <div
-                  key={i}
-                  className="absolute w-2 h-2 bg-purple-400 rounded-full opacity-40 animate-ping"
-                  style={{
-                    top: `${Math.random() * 100}%`,
-                    left: `${Math.random() * 100}%`,
-                    animationDelay: `${i * 0.5}s`,
-                    animationDuration: '3s'
-                  }}
-                ></div>
-              ))}
             </div>
           </div>
           
