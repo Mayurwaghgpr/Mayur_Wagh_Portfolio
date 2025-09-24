@@ -74,7 +74,7 @@ function Nav() {
         hidden md:block
       `}>
         <div className={`
-          relative bg-black bg-opacity-20  backdrop-blur-xl border border-slate-700/50 
+          relative bg-black bg-opacity-20  backdrop-blur-xl border
           rounded-full px-8 py-4 shadow-2xl shadow-black/20
           transition-all duration-300
           
@@ -132,16 +132,12 @@ function Nav() {
       <div className="md:hidden">
         {/* Mobile Header Bar */}
         <header className={`
-          fixed bottom-5 left-0 right-0 z-50  rounded-full  mx-10
-          bg-slate-900/95 backdrop-blur-xl border-b border-slate-700/50
+          fixed top-2 right-0 z-50  rounded-full  mx-5
+          bg-black bg-opacity-20 backdrop-blur-xl border 
           transition-all duration-300
           ${isScrolled ? 'bg-slate-900/98 shadow-lg shadow-black/20' : ''}
         `}>
-          <div className="flex items-center justify-between px-4 py-3">
-            {/* Mobile Logo */}
-            <h1 className="text-sm font-bold text-white font-mono">
-              Mayur Wagh
-            </h1>
+          <div className="flex items-center justify-between p-2.5">
 
             {/* Mobile Menu Button */}
             <button
@@ -175,7 +171,7 @@ function Nav() {
           
           {/* Menu Content */}
           <div className={`
-            absolute bottom-28 left-4 right-4 bg-slate-900/95 backdrop-blur-xl 
+            absolute top-20 left-4 right-4 bg-slate-900/95 backdrop-blur-xl 
             border border-slate-700/50 rounded-2xl p-6 shadow-2xl
             transition-all duration-300
             ${isMobileMenuOpen ? 'translate-y-0 scale-100' : '-translate-y-4 scale-95'}

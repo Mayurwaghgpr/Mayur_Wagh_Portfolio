@@ -15,8 +15,6 @@ function Intro() {
 
   return (
     <section id="intro" className="relative w-screen min-h-screen overflow-hidden">
-
-      
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -31,14 +29,15 @@ function Intro() {
           {/* Text Content */}
           <article className={`
             transition-all duration-1000 ease-out transform
+            
             ${expand 
-              ? "lg:w-1/2 opacity-100 translate-x-0 scale-100" 
+              ? "lg:w-1/2 w-full opacity-100 translate-x-0 scale-100" 
               : "w-0 lg:w-0 opacity-0 -translate-x-12 scale-95"
             } 
             ${mounted ? '' : 'opacity-0'}
             overflow-hidden order-2 lg:order-1
           `}>
-            <div className="space-y-6 p-6 lg:p-8 mx-10">
+            <div className="space-y-6 p-6 lg:p-8 mx-2">
               <div className="space-y-2">
                 <h1 className="text-2xl lg:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 whitespace-nowrap leading-tight">
                   Mayur Wagh
@@ -50,7 +49,7 @@ function Intro() {
                 <h2 className="text-xl lg:text-2xl font-bold text-slate-100 whitespace-nowrap">
                   Full Stack Developer
                 </h2>
-                <h3 className="text-lg lg:text-xl text-purple-300 whitespace-nowrap font-medium">
+                <h3 className="text-lg lg:text-xl text-purple-300 whitespace-nowrap font-medium text-wrap">
                   Passionate about Web Technologies
                 </h3>
                 <h4 className="text-sm lg:text-lg text-slate-300 whitespace-nowrap">
@@ -59,11 +58,11 @@ function Intro() {
               </div>
               
               {/* CTA Buttons */}
-              <div className="flex gap-4 pt-6">
-                <button className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-500 hover:to-blue-500 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/40 hover:shadow-purple-400/60">
+              <div className="flex gap-4 pt-6 sm:text-sm text-xs">
+                <button className="sm:px-6 sm:py-3 px-3 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-500 hover:to-blue-500 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/40 hover:shadow-purple-400/60">
                   View My Work
                 </button>
-                <button className="px-6 py-3 border-2 border-purple-400 text-purple-300 font-semibold rounded-full hover:bg-purple-600 hover:text-white hover:border-purple-600 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm">
+                <button className="sm:px-6 sm:py-3 px-3 py-2 border-2 border-purple-400 text-purple-300 font-semibold rounded-full hover:bg-purple-600 hover:text-white hover:border-purple-600 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm">
                   Get In Touch
                 </button>
               </div>
@@ -176,7 +175,7 @@ function Intro() {
                   {/* Email */}
                   <a 
                     className="absolute top-1/2 -right-8 -translate-y-1/2 p-4 bg-slate-800/80 backdrop-blur-sm text-slate-200 hover:bg-purple-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:translate-x-2 rounded-full shadow-lg shadow-black/30 border border-slate-600/50 group"
-                    href="mailto:contact@mayurwagh.dev"
+                    href="mailto:mayur2002wagh@gmail.com"
                     aria-label="Email"
                     style={{ transitionDelay: expand ? '400ms' : '0ms' }}
                   >

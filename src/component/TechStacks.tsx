@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { RiNextjsFill, RiNodejsFill } from "react-icons/ri";
 import { DiRedis } from "react-icons/di";
 import { SiExpress, SiMongodb, SiSocketdotio } from "react-icons/si";
@@ -23,7 +23,7 @@ function TechStacks() {
     setMounted(true);
   }, []);
 
-  const technologies: TechObj[] = [
+  const technologies: TechObj[] = useMemo(() =>  [
     {
       icon: <FaReact />,
       text: "React.js",
@@ -94,7 +94,7 @@ function TechStacks() {
       category: "Backend",
       description: "Real-time bidirectional event-based communication",
     },
-  ];
+  ], []);
 
   const categories = ["All", "Frontend", "Backend", "Database", "DevOps"];
 

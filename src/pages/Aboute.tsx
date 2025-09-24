@@ -6,7 +6,6 @@ import { BiCodeAlt } from 'react-icons/bi';
 function About() {
   const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState('story');
-//   const [visibleSkills, setVisibleSkills] = useState(6);
 
   useEffect(() => {
     setMounted(true);
