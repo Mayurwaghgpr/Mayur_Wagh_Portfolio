@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 function Nav() {
   const [activeSection, setActiveSection] = useState('intro');
@@ -8,11 +9,11 @@ function Nav() {
   const [mounted, setMounted] = useState(false);
 
   const navLinks = [
-    { name: 'Home', href: '#intro', id: 'intro' },
-    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Home', href: '/', id: 'home' },
+    { name: 'About', href: '/about', id: 'about' },
     { name: 'Tech Stack', href: '#techstacks', id: 'techstacks' },
-    { name: 'Projects', href: '#projects', id: 'projects' },
-    { name: 'Contact', href: '#contact', id: 'contact' },
+    { name: 'Projects', href: '/#projects', id: 'projects' },
+    { name: 'Contact', href: '/#contact', id: 'contact' },
   ];
 
   useEffect(() => {
@@ -53,21 +54,11 @@ function Nav() {
     };
   }, []);
 
-  const handleNavClick = (href: string, id: string) => {
-    setActiveSection(id);
-    setIsMobileMenuOpen(false);
-    
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <>
       {/* Desktop Navigation */}
       <header className={`
-        fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 
+        fixed top-5 right-10 transform -translate-x-1/2 z-50 
         transition-all duration-500 ease-out
         ${mounted ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0'}
         ${isScrolled ? 'scale-95' : 'scale-100'}
@@ -75,7 +66,7 @@ function Nav() {
       `}>
         <div className={`
           relative bg-black bg-opacity-20  backdrop-blur-xl border
-          rounded-full px-8 py-4 shadow-2xl shadow-black/20
+          rounded-full px-8 py-3 shadow-2xl shadow-black/20
           transition-all duration-300
           
           hover:scale-105 hover:shadow-purple-500/20
@@ -87,15 +78,11 @@ function Nav() {
               {navLinks.map((link, index) => {
                 const isActive = activeSection === link.id;
                 return (
-                  <a
+                  <Link
                     key={link.name}
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href, link.id);
-                    }}
+                    to={link.href}
                     className={`
-                      relative px-4 py-2 rounded-full font-medium transition-all duration-300 
+                      relative px-4 py-1 rounded-full font-medium transition-all duration-300 
                       text-sm tracking-wide group cursor-pointer
                       ${isActive 
                         ? 'text-white bg-gray-400/20 ' 
@@ -120,7 +107,7 @@ function Nav() {
                     <div className="absolute inset-0 rounded-full overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                     </div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -180,13 +167,10 @@ function Nav() {
               {navLinks.map((link, index) => {
                 const isActive = activeSection === link.id;
                 return (
-                  <a
+                  <Link
                     key={link.name}
-                    href={link.href}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(link.href, link.id);
-                    }}
+                    to={link.href}
+  
                     className={`
                       block px-4 py-3 rounded-xl font-medium transition-all duration-300
                       ${isActive 
@@ -204,16 +188,13 @@ function Nav() {
                       {isActive && <div className="w-2 h-2 bg-white rounded-full"></div>}
                       <span>{link.name}</span>
                     </div>
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
           </div>
         </div>
       </div>
-
-      {/* Spacer for mobile */}
-      <div className="md:hidden h-20"></div>
     </>
   );
 }

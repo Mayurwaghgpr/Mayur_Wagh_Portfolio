@@ -102,18 +102,7 @@ function TechStacks() {
     selectedCategory === "All"
       ? technologies
       : technologies.filter((tech) => tech.category === selectedCategory);
-
-  // const getCategoryColor = (category: string) => {
-  //   const colors = {
-  //     Frontend: "bg-cyan-600",
-  //     Backend: "bg-green-600",
-  //     Database: "bg-blue-600",
-  //     DevOps: "bg-purple-600",
-  //     All: "bg-slate-600",
-  //   };
-  //   return colors[category as keyof typeof colors] || "bg-slate-600";
-  // };
-
+  
   const getCategoryGradient = (category: string) => {
     const gradients = {
       Frontend: "from-cyan-600 to-cyan-700",
@@ -142,21 +131,10 @@ function TechStacks() {
   return (
     <section
       id="techstacks"
-      className="py-20 px-4 w-full min-h-screen relative overflow-hidden"
+      className="  py-20 px-4 w-full min-h-screen relative overflow-hidden"
     >
 
 
-      {/* Enhanced Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 2px 2px, rgba(255,255,255,0.8) 1px, transparent 0)",
-            backgroundSize: "32px 32px",
-          }}
-        ></div>
-      </div>
 
       {/* Animated lines */}
       <div className="absolute inset-0 overflow-hidden">
@@ -164,7 +142,7 @@ function TechStacks() {
         <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent animate-pulse delay-700"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10  flex flex-col items-center">
         {/* Enhanced Header Section */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/40 to-blue-800/40 backdrop-blur-md border border-purple-500/30 sm:px-6 sm:py-3 px-3 py-1.5 rounded-full mb-8 shadow-lg shadow-purple-500/20">
@@ -196,7 +174,7 @@ function TechStacks() {
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={` 
-                  group sm:px-6 sm:py-3 px-4 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-md
+                  group sm:px-4 sm:py-2 px-2 py-1 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-md
                   ${
                     isActive
                       ? `bg-gradient-to-r ${getCategoryGradient(category)} text-white shadow-xl ${getCategoryShadowColor(category)} border border-white/20`
@@ -222,11 +200,11 @@ function TechStacks() {
         </div>
 
         {/* Enhanced Tech Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mb-20 px-10">
+        <div className="flex justify-center items-center gap-8 space-y-1 flex-wrap  sm:w-1/2 sm:px-0 px-4">
           {filteredTechnologies.map((tech, idx) => (
             <div
               key={`${tech.text}-${selectedCategory}`}
-              className="group relative"
+              className="group relative "
               style={{
                 animationDelay: `${idx * 100}ms`,
                 opacity: mounted ? 1 : 0,
@@ -237,18 +215,7 @@ function TechStacks() {
               onMouseLeave={() => setHoveredTech(null)}
             >
               {/* Main Card */}
-              <div className="relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-md border border-slate-600/30 rounded-3xl sm:p-8 p-4 shadow-xl group-hover:shadow-2xl transition-all duration-500 transform group-hover:scale-105 group-hover:-translate-y-3 cursor-pointer overflow-hidden">
-                
-                {/* Category Badge */}
-                <div className={`absolute top-4 right-4 bg-gradient-to-r ${getCategoryGradient(tech.category)} text-white text-xs sm:px-3 sm:py-1.5 p-1.5 rounded-full font-medium shadow-lg opacity-80 group-hover:opacity-100 transition-opacity duration-300`}>
-                  {tech.category}
-                </div>
-
-                {/* Animated Background Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-blue-600/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                
-                {/* Glow Effect */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-2xl shadow-purple-500/10"></div>
+              <div className="relative ">
 
                 {/* Icon Section */}
                 <div className="relative flex items-center justify-center mb-6">
@@ -268,22 +235,10 @@ function TechStacks() {
 
                 {/* Content */}
                 <div className="relative text-center space-y-4">
-                  <h3 className="sm:text-xl text-md font-bold text-slate-100 group-hover:text-white transition-colors duration-300">
+                  <h3 className="sm:text-lg text-md font-medium text-slate-100 group-hover:text-white transition-colors duration-300">
                     {tech.text}
                   </h3>
-                  <p className="sm:text-sm text-xs text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors duration-300 min-h-[2.5rem]">
-                    {tech.description}
-                  </p>
-                </div>
-
-                {/* Animated Border */}
-                <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/20 via-transparent to-blue-500/20 animate-pulse"></div>
-                </div>
-
-                {/* Shine Effect */}
-                <div className="absolute inset-0 rounded-3xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out skew-x-12"></div>
+  
                 </div>
               </div>
 
@@ -292,7 +247,7 @@ function TechStacks() {
                 <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 -translate-y-full z-20 animate-fadeIn">
                   <div className="bg-slate-800/95 backdrop-blur-md text-white px-4 py-2 rounded-lg shadow-xl border border-slate-600/50 text-sm font-medium whitespace-nowrap">
                     Click to learn more
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-2 h-2 bg-slate-800 rotate-45 border-r border-b border-slate-600/50"></div>
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-slate-800 rotate-45 border-r border-b border-slate-600/50"></div>
                   </div>
                 </div>
               )}
@@ -301,7 +256,7 @@ function TechStacks() {
         </div>
 
         {/* Enhanced Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20">
+        <div className="flex justify-center items-center flex-wrap w-full gap-10 mt-20">
           {categories.slice(1).map((category, idx) => {
             const count = technologies.filter(
               (tech) => tech.category === category
@@ -322,19 +277,19 @@ function TechStacks() {
                   
                   {/* Main Circle */}
                   <div className={`
-                    relative sm:w-20 sm:h-20 h-10 w-10 bg-gradient-to-br ${getCategoryGradient(category)} 
+                    relative  h-10 w-10 bg-gradient-to-br ${getCategoryGradient(category)} 
                     rounded-full flex items-center justify-center mx-auto shadow-2xl 
                     group-hover:scale-110 group-hover:shadow-3xl transition-all duration-300
                     border-2 border-white/10 group-hover:border-white/20
                     ${getCategoryShadowColor(category)}
                   `}>
-                    <span className="sm:text-3xl text-xl font-black text-white drop-shadow-lg">
+                    <span className=" text-xl font-black text-white drop-shadow-lg">
                       {count}
                     </span>
                   </div>
                 </div>
 
-                <h4 className="sm:text-lg text-md font-bold text-slate-200 group-hover:text-white transition-colors duration-300 mb-2">
+                <h4 className=" sm:text-md text-sm font-bold text-slate-200 group-hover:text-white transition-colors duration-300 mb-2">
                   {category}
                 </h4>
                 <p className="sm:text-sm text-xs text-slate-400 group-hover:text-slate-300 transition-colors duration-300">

@@ -1,47 +1,41 @@
-import { useState, useEffect } from 'react';
-import {  FaGraduationCap, FaBriefcase, FaHeart, FaRocket, FaLightbulb } from 'react-icons/fa';
+import { useState} from 'react';
+import {   FaBriefcase, FaRocket, FaLightbulb } from 'react-icons/fa';
 import { MdTimeline, MdLocationOn } from 'react-icons/md';
-import { BiCodeAlt } from 'react-icons/bi';
+
 
 function About() {
-  const [mounted, setMounted] = useState(false);
+  // const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState('story');
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  // useEffect(() => {
+  //   setMounted(true);
+  // }, []);
 
   const tabs = [
     { id: 'story', label: 'My Story', icon: <FaLightbulb /> },
     { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
-    { id: 'interests', label: 'Interests', icon: <FaHeart /> }
+    // { id: 'interests', label: 'Interests', icon: <FaHeart /> }
   ];
 
   const experiences = [
     {
-      title: "Full Stack Developer",
-      company: "Tech Innovations Ltd",
-      period: "2023 - Present",
+      title: "Software Developer intern",
+      company: "Webseeder Ltd",
+      period: "2024 - 2025",
       location: "Remote",
-      description: "Leading development of scalable web applications using React, Node.js, and cloud technologies. Built microservices architecture serving 100k+ users.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Docker", "AWS"]
+      description: "Leading development of scalable web applications using React, Node.js, and cloud technologies. Built web application serving 100k+ users.",
+      technologies: ["React", "Node.js", "Express","MongoDB","Next.js"]
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Solutions Inc",
-      period: "2022 - 2023",
-      location: "Mumbai, India",
-      description: "Developed responsive web applications and improved user experience. Collaborated with design teams to create pixel-perfect interfaces.",
+      title: "Python Developer intern",
+      company: "Borse Automation Pvt Ltd",
+      period: "2023 - 2024",
+      location: "Nashik, India",
+      description: " .",
       technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"]
     },
   ];
 
-  const interests = [
-    { title: "Open Source", icon: <BiCodeAlt />, description: "Contributing to open source projects and building tools for the developer community." },
-    { title: "AI/ML", icon: <FaRocket />, description: "Exploring artificial intelligence and machine learning applications in web development." },
-    { title: "Mentoring", icon: <FaGraduationCap />, description: "Teaching and mentoring junior developers, sharing knowledge through blogs and tutorials." },
-    { title: "Travel", icon: <MdLocationOn />, description: "Exploring new places, experiencing different cultures, and working remotely from various locations." }
-  ];
   const renderTabContent = () => {
     switch (activeTab) {
       case 'story':
@@ -49,7 +43,7 @@ function About() {
           <div className="space-y-6 animate-fadeIn">
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Hey there! I'm <span className="text-purple-300 font-semibold">Mayur Wagh</span>, a passionate full-stack developer 
+                Hey there! I'm <span className="text-purple-300 font-semibold">Mayur Wagh</span>, a passionate Software Developer
                 with a love for creating digital experiences that matter. My journey in tech started with curiosity and has evolved 
                 into a career dedicated to building innovative solutions.
               </p>
@@ -82,11 +76,11 @@ function About() {
                 <h3 className="text-xl font-bold text-white mb-4">Quick Facts</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                   <div>
-                    <div className="text-2xl font-bold text-purple-300">3+</div>
+                    <div className="text-2xl font-bold text-purple-300">1+</div>
                     <div className="text-sm text-slate-400">Years Experience</div>
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-blue-300">50+</div>
+                    <div className="text-2xl font-bold text-blue-300">8+</div>
                     <div className="text-sm text-slate-400">Projects Completed</div>
                   </div>
                   <div>
@@ -95,7 +89,7 @@ function About() {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-orange-300">∞</div>
-                    <div className="text-sm text-slate-400">Coffee Consumed</div>
+                    <div className="text-sm text-slate-400">Water Consumed</div>
                   </div>
                 </div>
               </div>
@@ -154,33 +148,33 @@ function About() {
             </div>
           </div>
         );
-      case 'interests':
-        return (
-          <div className="grid md:grid-cols-2 gap-6 animate-fadeIn">
-            {interests.map((interest, idx) => (
-              <div 
-                key={idx}
-                className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30 group hover:border-purple-500/30 transition-all duration-300 transform hover:scale-105"
-                style={{
-                  animationDelay: `${idx * 100}ms`,
-                  opacity: mounted ? 1 : 0,
-                  transform: mounted ? 'translateY(0)' : 'translateY(20px)',
-                  transition: 'all 0.6s ease-out'
-                }}
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white text-xl">
-                    {interest.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                    {interest.title}
-                  </h3>
-                </div>
-                <p className="text-slate-300 leading-relaxed">{interest.description}</p>
-              </div>
-            ))}
-          </div>
-        );
+      // case 'interests':
+      //   return (
+      //     <div className="grid md:grid-cols-2 gap-6 animate-fadeIn">
+      //       {interests.map((interest, idx) => (
+      //         <div 
+      //           key={idx}
+      //           className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30 group hover:border-purple-500/30 transition-all duration-300 transform hover:scale-105"
+      //           style={{
+      //             animationDelay: `${idx * 100}ms`,
+      //             opacity: mounted ? 1 : 0,
+      //             transform: mounted ? 'translateY(0)' : 'translateY(20px)',
+      //             transition: 'all 0.6s ease-out'
+      //           }}
+      //         >
+      //           <div className="flex items-center gap-4 mb-4">
+      //             <div className="p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white text-xl">
+      //               {interest.icon}
+      //             </div>
+      //             <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
+      //               {interest.title}
+      //             </h3>
+      //           </div>
+      //           <p className="text-slate-300 leading-relaxed">{interest.description}</p>
+      //         </div>
+      //       ))}
+      //     </div>
+      //   );
 
       default:
         return null;
@@ -188,7 +182,7 @@ function About() {
   };
 
   return (
-    <section id="about" className="py-16 px-4 w-full min-h-screen  relative overflow-hidden">
+    <section id="about" className="py-10  w-full min-h-screen  relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-64 h-64 bg-purple-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>
@@ -206,31 +200,27 @@ function About() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/30 to-blue-800/30 backdrop-blur-sm border border-purple-500/20 px-4 py-2 rounded-full mb-6">
+        {/* <div className="text-center mb-5">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/30 to-blue-800/30 backdrop-blur-sm border border-purple-500/20 sm:px-4 sm:py-2 px-2 py-1 rounded-full mb-6">
             <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-purple-200 tracking-wider uppercase">
+            <span className="sm:text-sm text-xs font-semibold text-purple-200 tracking-wider uppercase">
               About Me
             </span>
           </div>
-          
-          <h1 className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 mb-6">
+
+          <h1 className="text-xl md:text-2xl lg:text-4xl  font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 mb-6">
             Get to Know Me
           </h1>
-          
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Passionate developer, continuous learner, and problem solver
-          </p>
-        </div>
+        </div> */}
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <div className="flex flex-wrap justify-end gap-2 mb-12 w-full">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`
-                flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm
+                flex items-center gap-2 sm:px-6 sm:py-3 px-3 py-1.5 sm:text-base text-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm
                 ${activeTab === tab.id 
                   ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/40' 
                   : 'bg-slate-800/50 text-slate-300 border border-slate-600/50 hover:border-slate-500/70 hover:bg-slate-700/50'

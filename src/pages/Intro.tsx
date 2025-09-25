@@ -3,6 +3,7 @@ import { GrLinkedinOption } from "react-icons/gr";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import profileImage from "../assets/image/profileimage.png";
+import { GoArrowDown } from "react-icons/go";
 
 
 function Intro() {
@@ -14,16 +15,8 @@ function Intro() {
   }, []);
 
   return (
-    <section id="intro" className="relative w-screen min-h-screen overflow-hidden">
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
-          backgroundSize: '20px 20px'
-        }}></div>
-      </div>
-      
-      <div className="relative z-10 flex justify-center items-center min-h-screen px-4">
+    <section id="intro" className="relative w-screen h-screen overflow-hidden  ">
+      <div className="relative z-10 flex justify-center items-center px-4 h-fit py-10">
         <div className="container flex lg:flex-row flex-col justify-center items-center gap-12 lg:gap-20 max-w-7xl">
           
           {/* Text Content */}
@@ -47,7 +40,7 @@ function Intro() {
               
               <div className="space-y-3">
                 <h2 className="text-xl lg:text-2xl font-bold text-slate-100 whitespace-nowrap">
-                  Full Stack Developer
+                Software Developer
                 </h2>
                 <h3 className="text-lg lg:text-xl text-purple-300 whitespace-nowrap font-medium text-wrap">
                   Passionate about Web Technologies
@@ -58,7 +51,7 @@ function Intro() {
               </div>
               
               {/* CTA Buttons */}
-              <div className="flex gap-4 pt-6 sm:text-sm text-xs">
+              <div className="flex gap-4  sm:text-sm text-xs">
                 <button className="sm:px-6 sm:py-3 px-3 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-full hover:from-purple-500 hover:to-blue-500 transform hover:scale-105 transition-all duration-300 shadow-lg shadow-purple-500/40 hover:shadow-purple-400/60">
                   View My Work
                 </button>
@@ -196,10 +189,8 @@ function Intro() {
       </div>
       
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-slate-400 animate-bounce">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-        </svg>
+      <div className="absolute left-1/2 transform -translate-x-1/2">
+        <GoArrowDown className=" text-slate-400 animate-bounce"/>
       </div>
     </section>
   );
