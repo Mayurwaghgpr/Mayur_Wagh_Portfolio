@@ -1,40 +1,18 @@
 import { useState} from 'react';
-import {   FaBriefcase, FaRocket, FaLightbulb } from 'react-icons/fa';
-import { MdTimeline, MdLocationOn } from 'react-icons/md';
+import {  FaRocket, FaLightbulb } from 'react-icons/fa';
 
 
 function About() {
-  // const [mounted, setMounted] = useState(false);
   const [activeTab, setActiveTab] = useState('story');
 
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
 
   const tabs = [
     { id: 'story', label: 'My Story', icon: <FaLightbulb /> },
-    { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
+    // { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
     // { id: 'interests', label: 'Interests', icon: <FaHeart /> }
   ];
 
-  const experiences = [
-    {
-      title: "Software Developer intern",
-      company: "Webseeder Ltd",
-      period: "2024 - 2025",
-      location: "Remote",
-      description: "Leading development of scalable web applications using React, Node.js, and cloud technologies. Built web application serving 100k+ users.",
-      technologies: ["React", "Node.js", "Express","MongoDB","Next.js"]
-    },
-    {
-      title: "Python Developer intern",
-      company: "Borse Automation Pvt Ltd",
-      period: "2023 - 2024",
-      location: "Nashik, India",
-      description: " .",
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"]
-    },
-  ];
+
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -66,7 +44,7 @@ function About() {
                     My Approach
                   </h3>
                   <p className="text-slate-300">
-                    I focus on understanding the 'why' behind every project. Whether it's optimizing performance 
+                    I focus on understanding the 'why' and 'how' behind every project. Whether it's optimizing performance 
                     or designing user interfaces, I strive for solutions that are both technically sound and user-friendly.
                   </p>
                 </div>
@@ -97,57 +75,7 @@ function About() {
           </div>
         );
 
-      case 'experience':
-        return (
-          <div className="space-y-6 animate-fadeIn">
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-blue-500"></div>
-              
-              {experiences.map((exp, idx) => (
-                <div key={idx} className="relative flex items-start gap-6 pb-8">
-                  {/* Timeline dot */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div className="w-8 h-8 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center">
-                      <MdTimeline className="text-white text-sm" />
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30 group hover:border-purple-500/30 transition-all duration-300">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-3">
-                      <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-                        {exp.title}
-                      </h3>
-                      <span className="text-sm text-purple-300 font-medium">{exp.period}</span>
-                    </div>
-                    
-                    <div className="flex items-center gap-4 mb-4">
-                      <span className="text-blue-300 font-medium">{exp.company}</span>
-                      <span className="text-slate-400 text-sm flex items-center gap-1">
-                        <MdLocationOn className="text-xs" />
-                        {exp.location}
-                      </span>
-                    </div>
-                    
-                    <p className="text-slate-300 mb-4 leading-relaxed">{exp.description}</p>
-                    
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIdx) => (
-                        <span 
-                          key={techIdx}
-                          className="px-3 py-1 bg-purple-900/30 text-purple-200 text-xs rounded-full border border-purple-500/30"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        );
+
       // case 'interests':
       //   return (
       //     <div className="grid md:grid-cols-2 gap-6 animate-fadeIn">
@@ -182,7 +110,7 @@ function About() {
   };
 
   return (
-    <section id="about" className="py-10  w-full min-h-screen  relative overflow-hidden">
+    <section id="about" className="py-24  w-full min-h-screen  relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-64 h-64 bg-purple-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>

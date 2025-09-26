@@ -131,11 +131,8 @@ function TechStacks() {
   return (
     <section
       id="techstacks"
-      className="  py-20 px-4 w-full min-h-screen relative overflow-hidden"
+      className="  py-20 w-full min-h-screen relative overflow-hidden"
     >
-
-
-
       {/* Animated lines */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-500/20 to-transparent animate-pulse"></div>

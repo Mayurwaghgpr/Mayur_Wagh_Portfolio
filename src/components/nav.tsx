@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import {  NavLink, useLocation } from 'react-router-dom';
 
 function Nav() {
-  const [activeSection, setActiveSection] = useState('intro');
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const location = useLocation()
 
   const navLinks = [
     { name: 'Home', href: '/', id: 'home' },
     { name: 'About', href: '/about', id: 'about' },
-    { name: 'Tech Stack', href: '#techstacks', id: 'techstacks' },
-    { name: 'Projects', href: '/#projects', id: 'projects' },
-    { name: 'Contact', href: '/#contact', id: 'contact' },
+    { name: 'Projects', href: '/projects', id: 'projects' },
+    { name: 'Contact', href: '/contact', id: 'contact' },
   ];
 
   useEffect(() => {
@@ -21,21 +21,7 @@ function Nav() {
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
-      const sections = navLinks.map(link => link.id);
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
-        }
-        return false;
-      });
-      
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
+    
     };
 
     const handleResize = () => {
@@ -53,7 +39,6 @@ function Nav() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-
   return (
     <>
       {/* Desktop Navigation */}
@@ -76,12 +61,12 @@ function Nav() {
             {/* Navigation Links */}
             <div className="flex items-center gap-1">
               {navLinks.map((link, index) => {
-                const isActive = activeSection === link.id;
+                const isActive = link.href === location.pathname;
                 return (
-                  <Link
+                  <NavLink
                     key={link.name}
                     to={link.href}
-                    className={`
+                    className={ `
                       relative px-4 py-1 rounded-full font-medium transition-all duration-300 
                       text-sm tracking-wide group cursor-pointer
                       ${isActive 
@@ -107,7 +92,7 @@ function Nav() {
                     <div className="absolute inset-0 rounded-full overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
                     </div>
-                  </Link>
+                  </NavLink>
                 );
               })}
             </div>
@@ -165,13 +150,13 @@ function Nav() {
           `}>
             <nav className="space-y-2">
               {navLinks.map((link, index) => {
-                const isActive = activeSection === link.id;
+                const isActive = link.href === location.pathname;
                 return (
-                  <Link
+                  <NavLink
                     key={link.name}
                     to={link.href}
   
-                    className={`
+                    className={ `
                       block px-4 py-3 rounded-xl font-medium transition-all duration-300
                       ${isActive 
                         ? 'text-white bg-gray-800 shadow-lg ' 
@@ -188,7 +173,7 @@ function Nav() {
                       {isActive && <div className="w-2 h-2 bg-white rounded-full"></div>}
                       <span>{link.name}</span>
                     </div>
-                  </Link>
+                  </NavLink>
                 );
               })}
             </nav>
