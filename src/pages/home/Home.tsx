@@ -4,12 +4,11 @@ import Experience from "./components/Experience";
 
 function Home() {
   return (
-    <div className=" relative space-y-4 max-w-4xl sm:px-0 px-5 mx-auto">
+    <div className=" relative space-y-4 max-w-5xl sm:px-0 px-5 mx-auto">
       {" "}
       <Intro />
-      <Experience/>
+      <Experience />
       <TechStacks />
-
     </div>
   );
 }

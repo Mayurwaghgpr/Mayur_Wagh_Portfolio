@@ -5,6 +5,7 @@ import { SiExpress, SiMongodb, SiSocketdotio } from "react-icons/si";
 import { BiLogoKubernetes, BiLogoPostgresql } from "react-icons/bi";
 import { FaReact } from "react-icons/fa";
 import { FaDocker } from "react-icons/fa6";
+import Heading from "./Heading";
 
 type TechObj = {
   icon: React.ReactNode;
@@ -23,78 +24,81 @@ function TechStacks() {
     setMounted(true);
   }, []);
 
-  const technologies: TechObj[] = useMemo(() =>  [
-    {
-      icon: <FaReact />,
-      text: "React.js",
-      color: "text-cyan-400",
-      category: "Frontend",
-      description: "Building dynamic and interactive user interfaces",
-    },
-    {
-      icon: <RiNextjsFill />,
-      text: "Next.js",
-      color: "text-white",
-      category: "Frontend",
-      description: "Production-ready React applications with SSR/SSG",
-    },
-    {
-      icon: <RiNodejsFill />,
-      text: "Node.js",
-      color: "text-green-400",
-      category: "Backend",
-      description: "Scalable server-side JavaScript runtime",
-    },
-    {
-      icon: <SiExpress />,
-      text: "Express.js",
-      color: "text-slate-300",
-      category: "Backend",
-      description: "Minimal and flexible Node.js web framework",
-    },
-    {
-      icon: <BiLogoPostgresql />,
-      text: "PostgreSQL",
-      color: "text-blue-400",
-      category: "Database",
-      description: "Powerful open-source relational database",
-    },
-    {
-      icon: <SiMongodb />,
-      text: "MongoDB",
-      color: "text-green-400",
-      category: "Database",
-      description: "Flexible document-based NoSQL database",
-    },
-    {
-      icon: <DiRedis />,
-      text: "Redis",
-      color: "text-red-400",
-      category: "Database",
-      description: "High-performance in-memory data store",
-    },
-    {
-      icon: <FaDocker />,
-      text: "Docker",
-      color: "text-blue-400",
-      category: "DevOps",
-      description: "Containerization for consistent deployments",
-    },
-    {
-      icon: <BiLogoKubernetes />,
-      text: "Kubernetes",
-      color: "text-blue-300",
-      category: "DevOps",
-      description: "Orchestrating containerized applications",
-    },
-    {
-      icon: <SiSocketdotio />,
-      text: "Socket.io",
-      color: "text-slate-200",
-      category: "Backend",
-      description: "Real-time bidirectional event-based communication",
-    },
-  ], []);
+  const technologies: TechObj[] = useMemo(
+    () => [
+      {
+        icon: <FaReact />,
+        text: "React.js",
+        color: "text-cyan-400",
+        category: "Frontend",
+        description: "Building dynamic and interactive user interfaces",
+      },
+      {
+        icon: <RiNextjsFill />,
+        text: "Next.js",
+        color: "text-white",
+        category: "Frontend",
+        description: "Production-ready React applications with SSR/SSG",
+      },
+      {
+        icon: <RiNodejsFill />,
+        text: "Node.js",
+        color: "text-green-400",
+        category: "Backend",
+        description: "Scalable server-side JavaScript runtime",
+      },
+      {
+        icon: <SiExpress />,
+        text: "Express.js",
+        color: "text-slate-300",
+        category: "Backend",
+        description: "Minimal and flexible Node.js web framework",
+      },
+      {
+        icon: <BiLogoPostgresql />,
+        text: "PostgreSQL",
+        color: "text-blue-400",
+        category: "Database",
+        description: "Powerful open-source relational database",
+      },
+      {
+        icon: <SiMongodb />,
+        text: "MongoDB",
+        color: "text-green-400",
+        category: "Database",
+        description: "Flexible document-based NoSQL database",
+      },
+      {
+        icon: <DiRedis />,
+        text: "Redis",
+        color: "text-red-400",
+        category: "Database",
+        description: "High-performance in-memory data store",
+      },
+      {
+        icon: <FaDocker />,
+        text: "Docker",
+        color: "text-blue-400",
+        category: "DevOps",
+        description: "Containerization for consistent deployments",
+      },
+      {
+        icon: <BiLogoKubernetes />,
+        text: "Kubernetes",
+        color: "text-blue-300",
+        category: "DevOps",
+        description: "Orchestrating containerized applications",
+      },
+      {
+        icon: <SiSocketdotio />,
+        text: "Socket.io",
+        color: "text-slate-200",
+        category: "Backend",
+        description: "Real-time bidirectional event-based communication",
+      },
+    ],
+    []
+  );
 
   const categories = ["All", "Frontend", "Backend", "Database", "DevOps"];
 
@@ -102,7 +106,7 @@ function TechStacks() {
     selectedCategory === "All"
       ? technologies
       : technologies.filter((tech) => tech.category === selectedCategory);
-  
+
   const getCategoryGradient = (category: string) => {
     const gradients = {
       Frontend: "from-cyan-600 to-cyan-700",
@@ -142,19 +146,13 @@ function TechStacks() {
       <div className="relative z-10  flex flex-col items-center">
         {/* Enhanced Header Section */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/40 to-blue-800/40 backdrop-blur-md border border-purple-500/30 sm:px-6 sm:py-3 px-3 py-1.5 rounded-full mb-8 shadow-lg shadow-purple-500/20">
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="sm:text-sm text-xs font-semibold text-purple-200 tracking-wider uppercase">
-              Technology Stack
-            </span>
+          <div className="inline-flex items-center gap-2  mb-8 ">
+            <Heading>Technology Stack</Heading>
           </div>
-          
-          <h2 className="text-lg md:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 mb-6 leading-tight">
-            Tech Arsenal
-          </h2>
-          
+
           <p className=" text-xs sm:text-sm text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Technologies I leverage to build scalable, performant, and modern applications that solve real-world problems
+            Technologies I leverage to build scalable, performant, and modern
+            applications that solve real-world problems
           </p>
         </div>
 
@@ -162,10 +160,11 @@ function TechStacks() {
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {categories.map((category) => {
             const isActive = selectedCategory === category;
-            const count = category === "All" 
-              ? technologies.length 
-              : technologies.filter((t) => t.category === category).length;
-            
+            const count =
+              category === "All"
+                ? technologies.length
+                : technologies.filter((t) => t.category === category).length;
+
             return (
               <button
                 key={category}
@@ -174,20 +173,27 @@ function TechStacks() {
                   group sm:px-4 sm:py-2 px-2 py-1 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-md
                   ${
                     isActive
-                      ? `bg-gradient-to-r ${getCategoryGradient(category)} text-white shadow-xl ${getCategoryShadowColor(category)} border border-white/20`
+                      ? `bg-gradient-to-r ${getCategoryGradient(
+                          category
+                        )} text-white shadow-xl ${getCategoryShadowColor(
+                          category
+                        )} border border-white/20`
                       : "bg-slate-800/60 text-slate-300 border-2 border-slate-600/40 hover:border-slate-500/60 hover:bg-slate-700/60 hover:shadow-lg hover:shadow-slate-500/20"
                   }
                 `}
               >
                 <div className="flex items-center gap-2">
                   <span className="sm:text-sm text-xs">{category}</span>
-                  <span className={`
+                  <span
+                    className={`
                     text-xs px-2 py-1 rounded-full transition-all duration-300
-                    ${isActive 
-                      ? 'bg-white/20 text-white/80' 
-                      : 'bg-slate-700/60 text-slate-400 group-hover:bg-slate-600/60 group-hover:text-slate-300'
+                    ${
+                      isActive
+                        ? "bg-white/20 text-white/80"
+                        : "bg-slate-700/60 text-slate-400 group-hover:bg-slate-600/60 group-hover:text-slate-300"
                     }
-                  `}>
+                  `}
+                  >
                     {count}
                   </span>
                 </div>
@@ -205,25 +211,28 @@ function TechStacks() {
               style={{
                 animationDelay: `${idx * 100}ms`,
                 opacity: mounted ? 1 : 0,
-                transform: mounted ? 'translateY(0) scale(1)' : 'translateY(30px) scale(0.9)',
-                transition: 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)'
+                transform: mounted
+                  ? "translateY(0) scale(1)"
+                  : "translateY(30px) scale(0.9)",
+                transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
               }}
               onMouseEnter={() => setHoveredTech(tech.text)}
               onMouseLeave={() => setHoveredTech(null)}
             >
               {/* Main Card */}
               <div className="relative ">
-
                 {/* Icon Section */}
                 <div className="relative flex items-center justify-center mb-6">
                   <div className="relative">
                     {/* Icon Background Effects */}
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-md group-hover:blur-lg transition-all duration-300 scale-150"></div>
                     <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full group-hover:scale-125 transition-transform duration-500"></div>
-                    
+
                     {/* Main Icon */}
                     <div className="relative bg-slate-800/60 backdrop-blur-sm rounded-2xl sm:p-6 p-3 group-hover:bg-slate-700/60 transition-all duration-300">
-                      <span className={`sm:text-2xl text-xl ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}>
+                      <span
+                        className={`sm:text-2xl text-xl ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}
+                      >
                         {tech.icon}
                       </span>
                     </div>
@@ -235,7 +244,6 @@ function TechStacks() {
                   <h3 className="sm:text-lg text-md font-medium text-slate-100 group-hover:text-white transition-colors duration-300">
                     {tech.text}
                   </h3>
-  
                 </div>
               </div>
 
@@ -259,27 +267,29 @@ function TechStacks() {
               (tech) => tech.category === category
             ).length;
             return (
-              <div 
-                key={category} 
+              <div
+                key={category}
                 className="text-center group cursor-pointer"
                 style={{
                   animationDelay: `${idx * 200}ms`,
                   opacity: mounted ? 1 : 0,
-                  transform: mounted ? 'translateY(0)' : 'translateY(20px)',
-                  transition: 'all 0.8s ease-out'
+                  transform: mounted ? "translateY(0)" : "translateY(20px)",
+                  transition: "all 0.8s ease-out",
                 }}
               >
                 <div className="relative mb-4">
-
-                  
                   {/* Main Circle */}
-                  <div className={`
-                    relative  h-10 w-10 bg-gradient-to-br ${getCategoryGradient(category)} 
+                  <div
+                    className={`
+                    relative  h-10 w-10 bg-gradient-to-br ${getCategoryGradient(
+                      category
+                    )} 
                     rounded-full flex items-center justify-center mx-auto shadow-2xl 
                     group-hover:scale-110 group-hover:shadow-3xl transition-all duration-300
                     border-2 border-white/10 group-hover:border-white/20
                     ${getCategoryShadowColor(category)}
-                  `}>
+                  `}
+                  >
                     <span className=" text-xl font-black text-white drop-shadow-lg">
                       {count}
                     </span>
@@ -290,15 +300,13 @@ function TechStacks() {
                   {category}
                 </h4>
                 <p className="sm:text-sm text-xs text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
-                  {count === 1 ? 'Technology' : 'Technologies'}
+                  {count === 1 ? "Technology" : "Technologies"}
                 </p>
               </div>
             );
           })}
         </div>
       </div>
-
-   
     </section>
   );
 }

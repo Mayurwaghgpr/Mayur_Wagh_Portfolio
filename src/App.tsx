@@ -13,7 +13,7 @@ const About = lazy(() => import("./pages/About"));
 
 function App() {
   return (
-    <main className="w-full h-screen pb-20 bg-gradient-to-tr from-black via-black to-blue-900/50  text-white snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-purple-500/80">
+    <main className="w-full h-screen pb-20 bg-gradient-to-b from-transparent via-transparent to-sky-700/25  text-white snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-purple-500/80">
       <BgStarAnimation />
       <NameHeader />
       <Nav />

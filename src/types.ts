@@ -8,3 +8,13 @@ export interface Postcard {
   message: string;
   createdAt: string;
 }
+
+export type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+  date: string;
+  category?: string;
+};

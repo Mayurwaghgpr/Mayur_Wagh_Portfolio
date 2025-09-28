@@ -1,31 +1,30 @@
-import { useState} from 'react';
-import {  FaRocket, FaLightbulb } from 'react-icons/fa';
-
+import { useState } from "react";
+import { FaRocket, FaLightbulb } from "react-icons/fa";
 
 function About() {
-  const [activeTab, setActiveTab] = useState('story');
-
+  const [activeTab, setActiveTab] = useState("story");
 
   const tabs = [
-    { id: 'story', label: 'My Story', icon: <FaLightbulb /> },
+    { id: "story", label: "My Story", icon: <FaLightbulb /> },
     // { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
     // { id: 'interests', label: 'Interests', icon: <FaHeart /> }
   ];
 
-
-
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'story':
+      case "story":
         return (
           <div className="space-y-6 animate-fadeIn">
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-slate-300 leading-relaxed mb-6">
-                Hey there! I'm <span className="text-purple-300 font-semibold">Mayur Wagh</span>, a passionate Software Developer
-                with a love for creating digital experiences that matter. My journey in tech started with curiosity and has evolved 
-                into a career dedicated to building innovative solutions.
+                Hey there! I'm{" "}
+                <span className="text-cyan-400 font-semibold">Mayur Wagh</span>,
+                a passionate Software Developer with a love for creating digital
+                experiences that matter. My journey in tech started with
+                curiosity and has evolved into a career dedicated to building
+                innovative solutions.
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-8 mt-8">
                 <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
@@ -33,33 +32,42 @@ function About() {
                     My Mission
                   </h3>
                   <p className="text-slate-300">
-                    To create technology that bridges the gap between complex problems and elegant solutions. 
-                    I believe in writing clean, maintainable code that not only works but tells a story.
+                    To create technology that bridges the gap between complex
+                    problems and elegant solutions. I believe in writing clean,
+                    maintainable code that not only works but tells a story.
                   </p>
                 </div>
-                
+
                 <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30">
                   <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                     <FaLightbulb className="text-blue-400" />
                     My Approach
                   </h3>
                   <p className="text-slate-300">
-                    I focus on understanding the 'why' and 'how' behind every project. Whether it's optimizing performance 
-                    or designing user interfaces, I strive for solutions that are both technically sound and user-friendly.
+                    I focus on understanding the 'why' and 'how' behind every
+                    project. Whether it's optimizing performance or building
+                    user interfaces, I strive for solutions that are both
+                    technically challenging and I haven't done before.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-8 bg-gradient-to-r from-purple-900/20 to-blue-900/20 rounded-xl p-6 border border-purple-500/20">
-                <h3 className="text-xl font-bold text-white mb-4">Quick Facts</h3>
+              <div className="mt-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-xl p-6 border border-purple-500/20">
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Quick Facts
+                </h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                   <div>
                     <div className="text-2xl font-bold text-purple-300">1+</div>
-                    <div className="text-sm text-slate-400">Years Experience</div>
+                    <div className="text-sm text-slate-400">
+                      Years Experience
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-blue-300">8+</div>
-                    <div className="text-sm text-slate-400">Projects Completed</div>
+                    <div className="text-sm text-slate-400">
+                      Projects Completed
+                    </div>
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-green-300">10+</div>
@@ -75,12 +83,11 @@ function About() {
           </div>
         );
 
-
       // case 'interests':
       //   return (
       //     <div className="grid md:grid-cols-2 gap-6 animate-fadeIn">
       //       {interests.map((interest, idx) => (
-      //         <div 
+      //         <div
       //           key={idx}
       //           className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30 group hover:border-purple-500/30 transition-all duration-300 transform hover:scale-105"
       //           style={{
@@ -110,22 +117,10 @@ function About() {
   };
 
   return (
-    <section id="about" className="py-24  w-full min-h-screen  relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-purple-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-600/20 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse delay-700"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600/10 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse delay-1000"></div>
-      </div>
-
-      {/* Grid pattern overlay */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
-          backgroundSize: '20px 20px'
-        }}></div>
-      </div>
-
+    <section
+      id="about"
+      className="py-24  w-full min-h-screen  relative overflow-hidden"
+    >
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Header Section */}
         {/* <div className="text-center mb-5">
@@ -149,9 +144,10 @@ function About() {
               onClick={() => setActiveTab(tab.id)}
               className={`
                 flex items-center gap-2 sm:px-6 sm:py-3 px-3 py-1.5 sm:text-base text-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm
-                ${activeTab === tab.id 
-                  ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg shadow-purple-500/40' 
-                  : 'bg-slate-800/50 text-slate-300 border border-slate-600/50 hover:border-slate-500/70 hover:bg-slate-700/50'
+                ${
+                  activeTab === tab.id
+                    ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/40"
+                    : "bg-slate-800/50 text-slate-300 border border-slate-600/50 hover:border-slate-500/70 hover:bg-slate-700/50"
                 }
               `}
             >
@@ -166,7 +162,6 @@ function About() {
           {renderTabContent()}
         </div>
       </div>
-
     </section>
   );
 }
