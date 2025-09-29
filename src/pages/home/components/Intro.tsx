@@ -4,9 +4,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import profileImage from "../../../assets/image/profileimage.png";
 import { GoArrowDown } from "react-icons/go";
-import { BiMessage } from "react-icons/bi";
 import Discription from "../../../components/Discription";
-import { CgMail } from "react-icons/cg";
 import { FiMail } from "react-icons/fi";
 
 function Intro() {
