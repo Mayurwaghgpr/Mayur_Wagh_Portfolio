@@ -4,7 +4,7 @@ import Experience from "./components/Experience";
 
 function Home() {
   return (
-    <div className=" relative space-y-4 max-w-5xl sm:px-0 px-5 mx-auto">
+    <div className=" relative  space-y-20 w-full max-w-5xl  sm:px-20 px-5 py-28 mx-auto">
       {" "}
       <Intro />
       <Experience />

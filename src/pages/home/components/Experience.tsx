@@ -47,17 +47,17 @@ const experiences = [
 
 function Experience() {
   return (
-    <div className="flex flex-col justify-center items-start gap-5 animate-fadeIn mx-auto min-h-screen max-w-4xl ">
+    <div className="flex flex-col justify-center items-start gap-5 w-full min-h-screen">
       <Heading>Work Experience</Heading>
-      <div className="relative">
+      <div className="relative w-full">
         {/* Timeline line */}
-        <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-blue-500"></div>
+        <div className="absolute sm:left-4 left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-blue-500"></div>
 
         {experiences.map((exp, idx) => (
-          <div key={idx} className="relative flex items-start gap-6 ">
+          <div key={idx} className="relative flex items-start gap-6 w-full">
             {/* Timeline dot */}
             <div className="relative z-10 flex-shrink-0">
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full flex items-center justify-center">
+              <div className="sm:w-8 sm:h-8 h-5 w-5 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-full flex items-center justify-center">
                 <MdTimeline className="text-white text-sm" />
               </div>
             </div>
@@ -65,7 +65,7 @@ function Experience() {
             {/* Content */}
             <div className="flex-1 p-6  transition-all duration-300">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-3">
-                <h3 className="text-xl font-bold text-white transition-colors">
+                <h3 className="sm:text-xl text-lg font-bold text-white transition-colors">
                   {exp.title}
                 </h3>
                 <span className="text-xs font-light opacity-50  ">
@@ -74,8 +74,10 @@ function Experience() {
               </div>
 
               <div className="flex items-center gap-4 mb-4">
-                <span className="text-blue-300 font-medium">{exp.company}</span>
-                <span className="text-slate-400 text-sm flex items-center gap-1">
+                <span className="text-blue-300 font-medium sm:text-base text-sm">
+                  {exp.company}
+                </span>
+                <span className="text-slate-400 sm:text-sm text-xs flex items-center gap-1">
                   <MdLocationOn className="text-xs" />
                   {exp.location}
                 </span>

@@ -2,21 +2,29 @@ import { BiCalendar } from "react-icons/bi";
 import { BsGithub } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 import type { Project } from "../types";
+import useIcon from "../hooks/useIcon";
 
 function ProjectCard({
   title,
   date,
   description,
   liveUrl,
+  preview,
   tags,
   githubUrl,
 }: Project) {
+  const icons = useIcon();
+
   return (
     <div className="group relative border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] overflow-hidden min-w-[22rem] h-[28rem]">
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative p-6 flex flex-col h-full">
+        {/* Preview */}
+        <div>
+          <img src={preview} alt="" />
+        </div>
         {/* Header */}
         <div className="flex items-start justify-between mb-4">
           <h3 className="font-bold text-xl pr-2  transition-colors duration-300">
@@ -36,20 +44,27 @@ function ProjectCard({
         </p>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {tags.slice(0, 6).map((tag, index) => (
+        <div className="relative flex flex-wrap gap-2 mb-6  w-full">
+          {tags.map((tag, index) => (
             <span
               key={index}
-              className="inline-flex items-center px-2 py-1 text-xs bg-gray-900/30  rounded-full border border-purple-500/20 hover:from-purple-500/20 hover:to-blue-500/20 transition-all duration-500"
+              className="relative  flex justify-between items-center p-2 text-xs bg-gray-900/30 rounded-full border border-purple-500/20 transition-all duration-700 ease-in-out "
             >
-              {tag}
+              {/* Icon always visible */}
+              <span className="flex peer w-fit">{icons[tag.icon]}</span>
+
+              {/* Text smoothly appears when width expands */}
+              <span className=" absolute -top-8 left-0  whitespace-nowrap opacity-0 transition-opacity duration-300 w-fit rounded-lg border p-1 text-xs  peer-hover:opacity-100">
+                {tag.text}
+              </span>
             </span>
           ))}
+          {/* 
           {tags.length > 4 && (
             <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full">
               +{tags.length - 4} more
             </span>
-          )}
+          )} */}
         </div>
 
         {/* Links */}

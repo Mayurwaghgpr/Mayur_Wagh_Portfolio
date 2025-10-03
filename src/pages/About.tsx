@@ -4,11 +4,7 @@ import { FaRocket, FaLightbulb } from "react-icons/fa";
 function About() {
   const [activeTab, setActiveTab] = useState("story");
 
-  const tabs = [
-    { id: "story", label: "My Story", icon: <FaLightbulb /> },
-    // { id: 'experience', label: 'Experience', icon: <FaBriefcase /> },
-    // { id: 'interests', label: 'Interests', icon: <FaHeart /> }
-  ];
+  const tabs = [{ id: "story", label: "My Story", icon: <FaLightbulb /> }];
 
   const renderTabContent = () => {
     switch (activeTab) {

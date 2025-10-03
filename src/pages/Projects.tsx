@@ -8,71 +8,79 @@ function Projects() {
     {
       title: "Spread",
       date: "2024",
+      preview: "",
       description:
         "A full-stack Publishing platform built with React, Node.js, and PostgreSQL. Features include user authentication with OAuth, Notification system, real-time messaging, and Post analytics with AI.",
       liveUrl: "https://spread-one.vercel.app/",
       githubUrl: "https://github.com/Mayurwaghgpr/Spread",
       tags: [
-        "React",
-        "Redux",
-        "React Query",
-        "Tailwind CSS",
-        "Node.js",
-        "Express.js",
-        "PostgreSQL",
-        "Socket.io",
-        "JWT",
-        "OAuth",
+        { icon: "reactjs", text: "React" },
+        { icon: "redux", text: "Redux" },
+        { icon: "reactq", text: "React Query" },
+        { icon: "tailwind", text: "Tailwind CSS" },
+        { icon: "nodejs", text: "Node.js" },
+        { icon: "express", text: "Express.js" },
+        { icon: "postgresql", text: "PostgreSQL" },
+        { icon: "socketio", text: "Socket.io" },
+        { icon: "jwt", text: "JWT" },
+        { icon: "oauth", text: "OAuth" },
       ],
       category: "Full Stack",
     },
     {
       title: "Real Estate CRM",
       date: "2023",
+      preview: "",
       description:
-        "It a CRM Solution for Real Estate with features like leads generation,bulk data upload,bulk upload,Kanban view for Deals,Property,Deals,followups and document manangement.which helps Real Estate Businesses to manage there client and deals effectively ",
+        "It a CRM Solution for Real Estate with features like leads generation, bulk data upload, Kanban view for Deals, Properties, followups, and document management. Helps Real Estate Businesses manage clients and deals effectively.",
       githubUrl: "https://github.com/Mayurwaghgpr/Real-Estate-CRM",
-      tags: [
-        "React.js",
-        "Redux",
-        "Tailwind CSS",
-        "Node.js",
-        "Express",
-        "Mongodb",
-        "JWT",
-        "Vercel",
-        "Render",
-      ],
-
       liveUrl: "https://real-estate-crm-sable.vercel.app/",
+      tags: [
+        { icon: "reactjs", text: "React" },
+        { icon: "redux", text: "Redux" },
+        { icon: "tailwind", text: "Tailwind CSS" },
+        { icon: "nodejs", text: "Node.js" },
+        { icon: "express", text: "Express.js" },
+        { icon: "mongodb", text: "MongoDB" },
+        { icon: "jwt", text: "JWT" },
+        { icon: "vercel", text: "Vercel" },
+        { icon: "render", text: "Render" },
+      ],
       category: "Backend",
     },
-
     {
       title: "DSA check list",
       date: "2024",
+      preview: "",
       description:
-        "A web application to track progress for the DSA Problems you have solved ,segregating the number of problems you have solved by each Data structure and difficulty level ",
+        "A web application to track progress for the DSA Problems you have solved, segregating them by Data Structure and difficulty level.",
       liveUrl: "https://checkds.vercel.app/",
       githubUrl: "https://github.com/Mayurwaghgpr/DSA_checklist",
-      tags: ["React.js", "Typescript", "Tailwind CSS", "Vercel"],
+      tags: [
+        { icon: "reactjs", text: "React" },
+        { icon: "typescript", text: "TypeScript" },
+        { icon: "tailwind", text: "Tailwind CSS" },
+        { icon: "vercel", text: "Vercel" },
+      ],
       category: "Frontend",
     },
     {
       title: "LMS for Music Artist (Internship)",
       date: "2023",
+      preview: "",
       description:
-        "It a CRM Solution for Real Estate with features like leads generation,bulk data upload,bulk upload,Kanban view for Deals,Property,Deals,followups and document manangement.which Makes Real Estate Business manage there client and deals effectively ",
+        "An LMS platform for music artists with features like student management, authentication, and learning resources. Built during internship.",
       tags: [
-        "Next.js",
-        "React.js",
-        "Zustand",
-        "Tailwind CSS",
-        "Node.js",
-        "Express",
-        "Mongodb",
-        "JWT",
+        { icon: "nextjs", text: "Next.js" },
+        { icon: "reactjs", text: "React" },
+        { icon: "redux", text: "Zustand" },
+        { icon: "tailwind", text: "Tailwind CSS" },
+        { icon: "nodejs", text: "Node.js" },
+        { icon: "express", text: "Express.js" },
+        { icon: "mongodb", text: "MongoDB" },
+        { icon: "jwt", text: "JWT" },
       ],
+      category: "Full Stack",
     },
   ];
 
@@ -115,6 +123,7 @@ function Projects() {
                 liveUrl={project.liveUrl}
                 tags={project.tags}
                 githubUrl={project.githubUrl}
+                preview={project.preview}
               />
             </div>
           ))}
