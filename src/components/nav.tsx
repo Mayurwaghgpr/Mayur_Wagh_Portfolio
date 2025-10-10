@@ -51,11 +51,10 @@ function Nav() {
       >
         <div
           className={`
-          relative bg-black bg-opacity-20  backdrop-blur-xl border
-          rounded-full px-8 py-3 shadow-2xl shadow-black/20
+          relative bg-black bg-opacity-20  backdrop-blur-sm border
+          rounded-xl px-8 py-3 shadow-2xl shadow-black/20
           transition-all duration-300
-          
-          hover:scale-105 hover:shadow-cyan-500/20
+           hover:shadow-cyan-500/20
         `}
         >
           <nav className="relative flex items-center gap-2">
@@ -68,7 +67,7 @@ function Nav() {
                     key={link.name}
                     to={link.href}
                     className={`
-                      relative px-4 py-1 rounded-full font-medium transition-all duration-300 
+                      relative px-4 py-1   rounded-xl font-medium transition-all duration-300 
                       text-sm tracking-wide group cursor-pointer
                       ${
                         isActive
@@ -107,7 +106,7 @@ function Nav() {
         {/* Mobile Header Bar */}
         <header
           className={`
-          fixed top-2 right-0 z-50  rounded-full  mx-5
+          fixed top-5 right-0 z-50  rounded-full  mx-5
           bg-black bg-opacity-20 backdrop-blur-xl border 
           transition-all duration-300
           ${isScrolled ? "bg-slate-900/98 shadow-lg shadow-black/20" : ""}

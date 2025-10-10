@@ -1,18 +1,31 @@
-import { useState } from "react";
 import { FaRocket, FaLightbulb } from "react-icons/fa";
 
 function About() {
-  const [activeTab, setActiveTab] = useState("story");
+  return (
+    <section
+      id="about"
+      className="w-full min-h-screen sm:max-w-4xl mx-auto relative overflow-hidden"
+    >
+      <div className="relative z-10 space-y-10 mx-auto">
+        {/* Header Section */}
+        <div className="text-center">
+          <div
+            key={"story"}
+            className={`
+                flex items-center w-fit mx-auto gap-2 sm:px-6 sm:py-3 px-3 py-1.5 sm:text-base text-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/40
 
-  const tabs = [{ id: "story", label: "My Story", icon: <FaLightbulb /> }];
+              `}
+          >
+            <FaLightbulb />
+            My Story
+          </div>
+        </div>
 
-  const renderTabContent = () => {
-    switch (activeTab) {
-      case "story":
-        return (
-          <div className="space-y-6 animate-fadeIn">
-            <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-slate-300 leading-relaxed mb-6">
+        {/* Tab Content */}
+        <div className="bg-slate-800/20 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/20 min-h-[500px]">
+          <div className="space-y-6 animate-fadeIn ">
+            <div className=" max-w-none lg:text-base sm:text-sm text-xs">
+              <p className=" text-slate-300 leading-relaxed mb-6">
                 Hey there! I'm{" "}
                 <span className="text-cyan-400 font-semibold">Mayur Wagh</span>,
                 a passionate Software Developer who loves learning and building
@@ -139,85 +152,6 @@ function About() {
               </div>
             </div>
           </div>
-        );
-
-      // case 'interests':
-      //   return (
-      //     <div className="grid md:grid-cols-2 gap-6 animate-fadeIn">
-      //       {interests.map((interest, idx) => (
-      //         <div
-      //           key={idx}
-      //           className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30 group hover:border-purple-500/30 transition-all duration-300 transform hover:scale-105"
-      //           style={{
-      //             animationDelay: `${idx * 100}ms`,
-      //             opacity: mounted ? 1 : 0,
-      //             transform: mounted ? 'translateY(0)' : 'translateY(20px)',
-      //             transition: 'all 0.6s ease-out'
-      //           }}
-      //         >
-      //           <div className="flex items-center gap-4 mb-4">
-      //             <div className="p-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg text-white text-xl">
-      //               {interest.icon}
-      //             </div>
-      //             <h3 className="text-xl font-bold text-white group-hover:text-purple-300 transition-colors">
-      //               {interest.title}
-      //             </h3>
-      //           </div>
-      //           <p className="text-slate-300 leading-relaxed">{interest.description}</p>
-      //         </div>
-      //       ))}
-      //     </div>
-      //   );
-
-      default:
-        return null;
-    }
-  };
-
-  return (
-    <section
-      id="about"
-      className="py-24  w-full min-h-screen  relative overflow-hidden"
-    >
-      <div className="relative z-10 max-w-6xl mx-auto">
-        {/* Header Section */}
-        {/* <div className="text-center mb-5">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-800/30 to-blue-800/30 backdrop-blur-sm border border-purple-500/20 sm:px-4 sm:py-2 px-2 py-1 rounded-full mb-6">
-            <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-            <span className="sm:text-sm text-xs font-semibold text-purple-200 tracking-wider uppercase">
-              About Me
-            </span>
-          </div>
-
-          <h1 className="text-xl md:text-2xl lg:text-4xl  font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-purple-300 to-blue-300 mb-6">
-            Get to Know Me
-          </h1>
-        </div> */}
-
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-end gap-2 mb-12 w-full">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`
-                flex items-center gap-2 sm:px-6 sm:py-3 px-3 py-1.5 sm:text-base text-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm
-                ${
-                  activeTab === tab.id
-                    ? "bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/40"
-                    : "bg-slate-800/50 text-slate-300 border border-slate-600/50 hover:border-slate-500/70 hover:bg-slate-700/50"
-                }
-              `}
-            >
-              {tab.icon}
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Tab Content */}
-        <div className="bg-slate-800/20 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/20 min-h-[500px]">
-          {renderTabContent()}
         </div>
       </div>
     </section>

@@ -4,14 +4,12 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-3">
+    <div className="w-full flex flex-col justify-center items-center gap-3 mt-20">
       <div className="w-full flex justify-center items-center gap-3">
         <span className="text-red-500 text-lg ">
           <HiHeart />
         </span>
-        <h1 className=" font-semibold">
-          Mayur Wagh
-        </h1>
+        <h1 className=" font-semibold">Mayur Wagh</h1>
       </div>
       <div className="flex justify-center items-center gap-6 text-sm text-gray-400">
         <Link
