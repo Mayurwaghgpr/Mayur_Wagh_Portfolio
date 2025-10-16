@@ -3,7 +3,6 @@ import { GrLinkedinOption } from "react-icons/gr";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import profileImage from "../../../assets/image/profileimage.png";
-// import { GoArrowDown } from "react-icons/go";
 import Discription from "../../../components/Discription";
 import { FiMail } from "react-icons/fi";
 type SocialLink = {
@@ -175,7 +174,7 @@ function Intro() {
                 Trying make something different in shadows 🥷🏻
               </h3>
               <a
-                href="https://drive.google.com/file/d/1sKXmeJhhiHy9IdmT3h_ifsVXnlVaH3Xj/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1z3M213xeUrGIvOEuUHq_Q6Za9wt72evP/view?usp=drive_link"
                 download
               >
                 <button className=" border rounded-lg px-3 py-2 font-bold">

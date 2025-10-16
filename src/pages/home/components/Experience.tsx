@@ -51,7 +51,7 @@ function Experience() {
       <Heading>Work Experience</Heading>
       <div className="relative w-full">
         {/* Timeline line */}
-        <div className="absolute sm:left-4 left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 to-blue-500"></div>
+        <div className="absolute sm:left-4 left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-transparent"></div>
 
         {experiences.map((exp, idx) => (
           <div key={idx} className="relative flex items-start gap-6 w-full">
