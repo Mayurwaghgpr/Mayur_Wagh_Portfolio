@@ -4,7 +4,7 @@ import ProjectCard from "../components/ProjectCard";
 import axiosInstance from "../utils/axiosInstance";
 import type { ProjectType } from "commons_in_portfolio";
 function Projects() {
-  const { data } = useQuery({
+  const { data: projects, isLoading } = useQuery({
     queryKey: ["projects"],
     queryFn: async (): Promise<ProjectType[]> => {
       const res = await axiosInstance.get<{ data: ProjectType[] }>(
@@ -13,6 +13,7 @@ function Projects() {
       return res?.data?.data;
     },
   });
+
   // Sample project data - replace with your actual projects
   // const ProjectsDetails: Project[] = [
   //   {
@@ -118,8 +119,8 @@ function Projects() {
         <div
           className={`flex justify-start items-center  xl:flex-nowrap flex-wrap  gap-5 justify-items-center transition-all duration-1000 delay-500 w-full `}
         >
-          {data?.length &&
-            data?.map((project, index) => (
+          {!isLoading &&
+            projects?.map((project, index) => (
               <div key={index} className="w-full h-full">
                 <ProjectCard {...project} />
               </div>

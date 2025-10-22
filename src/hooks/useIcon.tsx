@@ -30,8 +30,6 @@ import { SiPostman, SiDocker } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { TbBrandOauth } from "react-icons/tb";
 import { ReactElement } from "react";
-import { GiGemini } from "react-icons/gi";
-
 type IconName =
   // Frontend
   | "reactjs"
