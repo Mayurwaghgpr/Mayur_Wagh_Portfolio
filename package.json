@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.90.5",
+    "@types/axios": "^0.9.36",
+    "axios": "^1.12.2",
     "bootstrap-icons": "^1.11.3",
-    "commons_in_portfolio": "^1.0.0",
+    "commons_in_portfolio": "^1.0.15",
     "framer-motion": "^12.23.22",
     "html2canvas": "^1.4.1",
     "motion": "^12.23.22",

@@ -4,7 +4,7 @@ function About() {
   return (
     <section
       id="about"
-      className="w-full min-h-screen sm:max-w-4xl mx-auto relative overflow-hidden"
+      className="w-full min-h-screen sm:max-w-5xl mx-auto relative overflow-hidden"
     >
       <div className="relative z-10 space-y-10 mx-auto">
         {/* Header Section */}

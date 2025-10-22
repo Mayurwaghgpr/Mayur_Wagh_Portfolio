@@ -11,7 +11,7 @@ function Nav() {
   const navLinks = [
     { name: "Home", href: "/", id: "home" },
     { name: "About", href: "/about", id: "about" },
-    { name: "Projects", href: "/projects", id: "projects" },
+    // { name: "Projects", href: "/projects", id: "projects" },
     { name: "Contact", href: "/contact", id: "contact" },
   ];
 
@@ -51,7 +51,7 @@ function Nav() {
       >
         <div
           className={`
-          relative bg-black bg-opacity-20  backdrop-blur-sm border
+          relative bg-black/70   backdrop-blur-sm border
           rounded-xl px-8 py-3 shadow-2xl shadow-black/20
           transition-all duration-300
            hover:shadow-cyan-500/20

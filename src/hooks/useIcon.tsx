@@ -1,7 +1,8 @@
 // Frontend
 import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaBootstrap } from "react-icons/fa";
-import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { RiLinksFill, RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import {
+  SiGooglegemini,
   SiKubernetes,
   SiReactquery,
   SiRedux,
@@ -29,6 +30,7 @@ import { SiPostman, SiDocker } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { TbBrandOauth } from "react-icons/tb";
 import { ReactElement } from "react";
+import { GiGemini } from "react-icons/gi";
 
 type IconName =
   // Frontend
@@ -61,7 +63,9 @@ type IconName =
   | "docker"
   | "kubernetes"
   | "vercel"
-  | "render";
+  | "render"
+  | "liveLink"
+  | "geminiAi";
 
 type IconMap = Record<IconName, ReactElement>;
 
@@ -94,12 +98,14 @@ function useIcon(): IconMap {
     // Tools
     git: <FaGitAlt />,
     github: <FaGithub />,
+    geminiAi: <SiGooglegemini />,
     postman: <SiPostman />,
     vscode: <VscCode />,
     docker: <SiDocker />,
     kubernetes: <SiKubernetes />,
     vercel: <SiVercel />,
     render: <SiRender />,
+    liveLink: <RiLinksFill />,
   };
   return icons;
 }

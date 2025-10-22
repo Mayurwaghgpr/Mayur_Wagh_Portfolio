@@ -56,8 +56,8 @@ function Intro() {
   ];
 
   return (
-    <section id="intro" className="relative">
-      <div className="relative z-10 flex justify-center items-center  h-full w-full">
+    <section id="intro" className="relative max-w-4xl mx-auto sm:py-36">
+      <div className="relative z-10 flex justify-center items-center  h-full ">
         <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 lg:gap-20  w-full">
           {/* Profile image section */}
           <div className="flex justify-center items-center relative ">
@@ -174,7 +174,7 @@ function Intro() {
                 Trying make something different in shadows 🥷🏻
               </h3>
               <a
-                href="https://drive.google.com/file/d/1z3M213xeUrGIvOEuUHq_Q6Za9wt72evP/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1_FujAQCPyIE9qnxku9RNSjOu7coVslIL/view?usp=drive_link"
                 download
               >
                 <button className=" border rounded-lg px-3 py-2 font-bold">

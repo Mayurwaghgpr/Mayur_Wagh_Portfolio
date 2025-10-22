@@ -1,103 +1,143 @@
-import { BiCalendar } from "react-icons/bi";
-import { BsGithub } from "react-icons/bs";
-import { FiExternalLink } from "react-icons/fi";
-import type { Project } from "../types";
+import { useState, useEffect } from "react";
 import useIcon from "../hooks/useIcon";
+import type { ProjectType } from "commons_in_portfolio";
 
 function ProjectCard({
   title,
-  date,
   description,
-  liveUrl,
-  preview,
-  tags,
-  githubUrl,
-}: Project) {
+  links,
+  images,
+  technologies,
+}: ProjectType) {
   const icons = useIcon();
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
-    <div className="group relative border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.02] overflow-hidden min-w-[22rem] h-[28rem]">
-      {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    <div className="relative group  max-w-[40rem] w-full max-h-[40rem] border-inherit bg-black border   backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden">
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+      </div>
 
-      <div className="relative p-6 flex flex-col h-full">
-        {/* Preview */}
-        <div>
-          <img src={preview} alt="" />
-        </div>
+      <div className="relative flex flex-col items-start justify-center gap-4 w-full h-full p-6">
         {/* Header */}
-        <div className="flex items-start justify-between mb-4">
-          <h3 className="font-bold text-xl pr-2  transition-colors duration-300">
+        <div className="w-full">
+          <h3 className="font-bold  sm:text-lg text-base bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent group-hover:from-purple-200 group-hover:via-white group-hover:to-blue-200 transition-all duration-500">
             {title}
           </h3>
-          {date && (
-            <div className="flex items-center text-xs text-gray-500 dark:text-gray-400 bg-gray-900/5 dark:bg-white/10 rounded-full px-3 py-1.5 backdrop-blur-sm shrink-0">
-              <BiCalendar className="w-3 h-3 mr-1.5" />
-              {date}
+        </div>
+
+        <div className="flex sm:flex-row flex-col justify-center sm:items-start items-center gap-6 w-full">
+          {/* Image Section with Enhanced Styling */}
+          <div className="relative overflow-hidden rounded-xl group/img sm:h-28 h-40 sm:w-[10rem] w-full shrink-0">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 z-10" />
+
+            {images.map((image, index) => (
+              <img
+                key={index}
+                src={image.url}
+                alt={title}
+                className={`absolute inset-0 w-full h-full object-cover object-center transform group-hover/img:scale-110 transition-all duration-700 ${
+                  index === currentImageIndex ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            ))}
+
+            {/* Image indicators */}
+            {images.length > 1 && (
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                {images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImageIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      index === currentImageIndex
+                        ? "bg-white w-6"
+                        : "bg-white/40 hover:bg-white/60"
+                    }`}
+                    aria-label={`View image ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Description with fade effect */}
+          <div className="relative flex-grow overflow-hidden min-w-[70%]">
+            <p className="text-xs text-gray-300 leading-relaxed line-clamp-7">
+              {description}
+            </p>
+            <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black to-transparent" />
+          </div>
+        </div>
+
+        {/* Technologies with enhanced styling */}
+        <div className="relative flex justify-start items-center flex-wrap gap-2 w-full">
+          <span className="text-xs font-medium text-gray-400">Tech Stack:</span>
+          {technologies.slice(0, 10).map((tech, index) => (
+            <div key={index} className="group/tech relative">
+              <div className="flex items-center text-base gap-2 p-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 rounded-full transition-all duration-300 cursor-default">
+                <span className="flex text-xs peer w-fit">
+                  {icons[tech.technology as keyof typeof icons]}
+                </span>
+              </div>
+
+              {/* Tooltip */}
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 sm:px-3 sm:py-1.5 px-1.5 py-0.5 bg-black/90 backdrop-blur-sm border border-purple-500/30 rounded-lg opacity-0 group-hover/tech:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-30">
+                <span className=" text-[8px] leading-3 text-white">
+                  {tech.displayName}
+                </span>
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black/90 border-r border-b border-purple-500/30 rotate-45" />
+              </div>
             </div>
-          )}
-        </div>
-
-        {/* Description */}
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-6 line-clamp-4 leading-relaxed flex-grow">
-          {description}
-        </p>
-
-        {/* Tags */}
-        <div className="relative flex flex-wrap gap-2 mb-6  w-full">
-          {tags.map((tag, index) => (
-            <span
-              key={index}
-              className="relative  flex justify-between items-center p-2 text-xs bg-gray-900/30 rounded-full border border-purple-500/20 transition-all duration-700 ease-in-out "
-            >
-              {/* Icon always visible */}
-              <span className="flex peer w-fit">{icons[tag.icon]}</span>
-
-              {/* Text smoothly appears when width expands */}
-              <span className=" absolute -top-8 left-0  whitespace-nowrap opacity-0 transition-opacity duration-300 w-fit rounded-lg border p-1 text-xs  peer-hover:opacity-100">
-                {tag.text}
-              </span>
-            </span>
           ))}
-          {/* 
-          {tags.length > 4 && (
-            <span className="inline-flex items-center px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full">
-              +{tags.length - 4} more
+          {technologies.length > 10 && (
+            <span className="flex items-center gap-2 p-1 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 rounded-full transition-all duration-300 cursor-default text-[10px] leading-3">
+              {" "}
+              +{technologies.slice(10).length}{" "}
             </span>
-          )} */}
+          )}
         </div>
 
-        {/* Links */}
-        <div className="flex gap-3 mt-auto">
-          {githubUrl && (
-            <a
-              href={githubUrl}
-              className="relative flex items-center justify-center group/btn  text-xl opacity-50 hover:opacity-100 overflow-hidden transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:ring-offset-2 focus:ring-offset-transparent"
-              aria-label="View source code"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <BsGithub className="relative z-10" />
-            </a>
-          )}
-
-          {liveUrl && (
-            <a
-              href={liveUrl}
-              className="relative flex items-center justify-center text-xl opacity-50 hover:opacity-100 group/btn overflow-hidden transition-all duration-300 hover:scale-110 focus:outline-none "
-              aria-label="View live project"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FiExternalLink className="relative z-10" />
-            </a>
-          )}
+        {/* Links with enhanced buttons */}
+        <div className="flex items-center gap-3">
+          <span className="sm:text-sm text-xs font-medium text-gray-400">
+            Links:
+          </span>
+          {links.length > 0 &&
+            links.map((link, index) => {
+              return (
+                <a
+                  key={index}
+                  href={link.url}
+                  className="group/btn flex items-center justify-center gap-2 p-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 hover:from-purple-600/40 hover:to-blue-600/40 border border-purple-500/30 hover:border-purple-400/60 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20"
+                  aria-label={`View ${link.linkName}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="text-xs group-hover/btn:scale-110 transition-transform duration-300">
+                    {icons[link.linkName as keyof typeof icons]}
+                  </span>
+                </a>
+              );
+            })}
         </div>
       </div>
 
-      {/* Bottom gradient line */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r blur-sm from-purple-500/50 via-blue-500/50 to-purple-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
 }
+
 export default ProjectCard;

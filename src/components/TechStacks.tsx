@@ -133,14 +133,22 @@ function TechStacks() {
         category: "Backend",
         description: "Testing apis and apis documentation",
       },
+      {
+        icon: "geminiAi",
+        text: "Google Gemini",
+        color:
+          "bg-gradient-to-br from-blue-400 via-pink-600/50 to-white bg-clip-text text-clip text-transperent ",
+        category: "Backend",
+        description: "Testing apis and apis documentation",
+      },
     ],
     []
   );
 
   return (
-    <section id="techstacks" className=" w-full ">
+    <section id="techstacks" className=" w-full py-20 ">
       {/* Animated lines */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden  ">
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-500/20 to-transparent animate-pulse"></div>
         <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent animate-pulse delay-700"></div>
       </div>
