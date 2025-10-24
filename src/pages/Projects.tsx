@@ -3,8 +3,13 @@ import Heading from "../components/Heading";
 import ProjectCard from "../components/ProjectCard";
 import axiosInstance from "../utils/axiosInstance";
 import type { ProjectType } from "commons_in_portfolio";
+import CardSkeleton from "../components/CardSkeleton";
 function Projects() {
-  const { data: projects, isLoading } = useQuery({
+  const {
+    data: projects,
+    isLoading,
+    isError,
+  } = useQuery({
     queryKey: ["projects"],
     queryFn: async (): Promise<ProjectType[]> => {
       const res = await axiosInstance.get<{ data: ProjectType[] }>(
@@ -119,12 +124,24 @@ function Projects() {
         <div
           className={`flex justify-start items-center  xl:flex-nowrap flex-wrap  gap-5 justify-items-center transition-all duration-1000 delay-500 w-full `}
         >
-          {!isLoading &&
+          {!isLoading ? (
             projects?.map((project, index) => (
               <div key={index} className="w-full h-full">
                 <ProjectCard {...project} />
               </div>
-            ))}
+            ))
+          ) : (
+            <>
+              {" "}
+              <CardSkeleton />
+              <CardSkeleton />
+            </>
+          )}
+          {!isLoading && isError && (
+            <div className=" h-[10rem] w-full flex justify-center items-center ">
+              <span className="text-red-400">Failed to fetch Projects</span>
+            </div>
+          )}
         </div>
       </div>
     </section>
