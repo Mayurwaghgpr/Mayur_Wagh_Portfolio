@@ -1,8 +1,10 @@
-import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
+import { BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { HiHeart } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import useIcon from "../hooks/useIcon";
 
 function Footer() {
+  const icons = useIcon();
   return (
     <div className="w-full flex flex-col justify-center items-center gap-3 mt-20">
       <div className="w-full flex justify-center items-center gap-3">
@@ -18,9 +20,7 @@ function Footer() {
           rel="noopener noreferrer"
           className="hover:text-gray-200 transition-colors duration-200"
         >
-          <span>
-            <BsGithub />
-          </span>
+          <span>{icons["github"]}</span>
         </Link>
         <Link
           to="https://x.com/mayurwagh152064"
