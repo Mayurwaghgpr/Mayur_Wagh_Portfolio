@@ -32,7 +32,7 @@ import { TbBrandOauth } from "react-icons/tb";
 import { ReactElement } from "react";
 
 import { BsPerson } from "react-icons/bs";
-import { MdContacts, MdOutlineContacts } from "react-icons/md";
+import { MdOutlineContacts } from "react-icons/md";
 import { HiOutlineHome } from "react-icons/hi";
 type IconName =
   | "home"
