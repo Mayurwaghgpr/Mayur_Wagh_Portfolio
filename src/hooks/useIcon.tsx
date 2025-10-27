@@ -30,8 +30,14 @@ import { SiPostman, SiDocker } from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { TbBrandOauth } from "react-icons/tb";
 import { ReactElement } from "react";
+
+import { BsPerson } from "react-icons/bs";
+import { MdContacts, MdOutlineContacts } from "react-icons/md";
+import { HiOutlineHome } from "react-icons/hi";
 type IconName =
-  // Frontend
+  | "home"
+  | "about"
+  | "contact"
   | "reactjs"
   | "nextjs"
   | "html"
@@ -69,7 +75,9 @@ type IconMap = Record<IconName, ReactElement>;
 
 function useIcon(): IconMap {
   const icons: IconMap = {
-    // Frontend
+    home: <HiOutlineHome />,
+    contact: <MdOutlineContacts />,
+    about: <BsPerson />,
     reactjs: <FaReact />,
     nextjs: <RiNextjsFill />,
     html: <FaHtml5 />,
@@ -82,7 +90,6 @@ function useIcon(): IconMap {
     redux: <SiRedux />,
     vite: <SiVite />,
 
-    // Backend
     nodejs: <FaNodeJs />,
     express: <SiExpress />,
     mongodb: <SiMongodb />,
@@ -93,7 +100,6 @@ function useIcon(): IconMap {
     socketio: <SiSocketdotio />,
     oauth: <TbBrandOauth />,
 
-    // Tools
     git: <FaGitAlt />,
     github: <FaGithub />,
     geminiAi: <SiGooglegemini />,

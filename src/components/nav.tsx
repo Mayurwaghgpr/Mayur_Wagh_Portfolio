@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink, useLocation } from "react-router-dom";
+import useIcon from "../hooks/useIcon";
 
 function Nav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const location = useLocation();
+  const icons = useIcon();
 
   const navLinks = [
-    { name: "Home", href: "/", id: "home" },
-    { name: "About", href: "/about", id: "about" },
-    // { name: "Projects", href: "/projects", id: "projects" },
-    { name: "Contact", href: "/contact", id: "contact" },
+    { icon: "home", name: "Home", href: "/", id: "home" },
+    { icon: "about", name: "About", href: "/about", id: "about" },
+    // {icon:"", name: "Projects", href: "/projects", id: "projects" },
+    { icon: "contact", name: "Contact", href: "/contact", id: "contact" },
   ];
 
   useEffect(() => {
@@ -52,7 +54,7 @@ function Nav() {
         <div
           className={`
           relative bg-black/70   backdrop-blur-sm border
-          rounded-xl px-8 py-3 shadow-2xl shadow-black/20
+          px-5 py-2 rounded-full shadow-2xl shadow-black/20
           transition-all duration-300
            hover:shadow-cyan-500/20
         `}
@@ -60,35 +62,28 @@ function Nav() {
           <nav className="relative flex items-center gap-2">
             {/* Navigation Links */}
             <div className="flex items-center gap-1">
-              {navLinks.map((link, index) => {
+              {navLinks.map((link) => {
                 const isActive = link.href === location.pathname;
                 return (
                   <NavLink
                     key={link.name}
                     to={link.href}
                     className={`
-                      relative px-4 py-1   rounded-xl font-medium transition-all duration-300 
-                      text-sm tracking-wide group cursor-pointer
+                      relative flex items-center justify-center gap-2 px-4 py-1  rounded-xl font-medium transition-all duration-300 
+                      text-xs tracking-wide group cursor-pointer
                       ${
                         isActive
-                          ? "text-white bg-gray-400/20 "
+                          ? "text-white bg-gray-400/40 "
                           : "text-slate-300 hover:text-white hover:bg-slate-700/50"
                       }
                     `}
-                    style={{
-                      transitionDelay: `${index * 50}ms`,
-                    }}
                   >
-                    {/* Active indicator */}
-                    {isActive && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full animate-pulse"></div>
-                    )}
-
                     {/* Hover glow effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
+                    <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>{" "}
+                    <span className="relative z-10">
+                      {icons[link.icon as keyof typeof icons]}
+                    </span>
                     <span className="relative z-10">{link.name}</span>
-
                     {/* Shine effect on hover */}
                     <div className="absolute inset-0 rounded-full overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
