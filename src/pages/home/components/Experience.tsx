@@ -48,9 +48,7 @@ const experiences = [
 function Experience() {
   return (
     <section className=" relative flex flex-col justify-center items-start gap-5 w-full py-10 ">
-      <Heading className=" bg-white p-1 rounded-lg border-inherit border -translate-x-1 -translate-y-1 hover:translate-x-0 hover:translate-y-0  w-fit">
-        Work Experience
-      </Heading>
+      <Heading className="">Work Experience</Heading>
 
       <div className="relative flex flex-col items-start justify-start gap-4  w-full h-full">
         {/* Timeline line */}

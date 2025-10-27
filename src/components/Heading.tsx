@@ -2,7 +2,7 @@ import type React from "react";
 
 function Heading({
   children,
-  className = "xl:text-xl sm:text-lg text-base ",
+  className = "xl:text-lg sm:text-xs text-base ",
 }: {
   children: React.ReactNode;
   className?: string;

@@ -2,7 +2,7 @@ import { FaGithub } from "react-icons/fa";
 import { GrLinkedinOption } from "react-icons/gr";
 import { FaXTwitter } from "react-icons/fa6";
 import { useState, useEffect } from "react";
-import profileImage from "../../../assets/image/profileimage.png";
+import profileImage from "/profileimage.png";
 import Discription from "../../../components/Discription";
 import { FiMail } from "react-icons/fi";
 import Heading from "../../../components/Heading";
@@ -34,7 +34,7 @@ function Intro() {
       href: "https://linkedin.com/in/mayur-wagh-751b8a24b/",
       label: "LinkedIn",
       icon: <GrLinkedinOption />,
-      position: "absolute top-1/2 -left-8 -translate-y-1/2",
+      position: "absolute top-1/2 -left-12 -translate-y-1/2",
       hoverColor: "hover:bg-blue-600",
       tooltipPosition: "absolute top-1/2 -left-20 -translate-y-1/2",
     },
@@ -50,14 +50,14 @@ function Intro() {
       href: "mailto:mayur2002wagh@gmail.com",
       label: "Email",
       icon: <FiMail />,
-      position: "absolute top-1/2 -right-8 -translate-y-1/2",
+      position: "absolute -bottom-12 left-14",
       hoverColor: "hover:bg-purple-600",
       tooltipPosition: "absolute top-1/2 left-10 -translate-y-1/2",
     },
   ];
 
   return (
-    <section id="intro" className="relative max-w-4xl mx-auto sm:py-10">
+    <section id="intro" className="relative max-w-4xl mx-auto pb-20 pt-10">
       <div className="relative z-10 flex justify-center items-center  h-full ">
         <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 lg:gap-20  w-full">
           {/* Profile image section */}
@@ -126,7 +126,6 @@ function Intro() {
             text-slate-200 ${link.hoverColor} hover:text-white 
             transition-all duration-300 transform hover:scale-110 
             rounded-full shadow-lg shadow-black/30 border border-slate-600/50`}
-                      style={{ transitionDelay: `${(i + 1) * 100}ms` }}
                     >
                       {link.icon}
                       {/* Tooltip */}

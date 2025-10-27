@@ -49,7 +49,6 @@ type IconName =
   | "reactq"
   | "redux"
   | "vite"
-  // Backend
   | "nodejs"
   | "express"
   | "mongodb"
@@ -59,7 +58,6 @@ type IconName =
   | "jwt"
   | "socketio"
   | "oauth"
-  // Tools
   | "git"
   | "github"
   | "postman"

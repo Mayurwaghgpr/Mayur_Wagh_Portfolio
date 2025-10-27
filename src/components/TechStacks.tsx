@@ -146,8 +146,8 @@ function TechStacks() {
   );
 
   return (
-    <section id="techstacks" className=" w-full ">
-      <div className="relative z-10  flex flex-col items-center sm:py-10">
+    <section id="techstacks" className=" w-full py-10 ">
+      <div className="relative z-10  flex flex-col items-center ">
         {/* Enhanced Header Section */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2  mb-8 ">

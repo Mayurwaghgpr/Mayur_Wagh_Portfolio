@@ -5,7 +5,8 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Fira Code', Menlo, Monaco, Consolas, monospace;
+  /* font-family: 'Fira Code', Menlo, Monaco, Consolas, monospace; */
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   border-color: #484848;
 }
 body{
