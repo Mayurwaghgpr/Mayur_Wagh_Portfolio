@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import profileImage from "../../../assets/image/profileimage.png";
 import Discription from "../../../components/Discription";
 import { FiMail } from "react-icons/fi";
+import Heading from "../../../components/Heading";
 type SocialLink = {
   href: string;
   label: string;
@@ -56,7 +57,7 @@ function Intro() {
   ];
 
   return (
-    <section id="intro" className="relative max-w-4xl mx-auto sm:py-36">
+    <section id="intro" className="relative max-w-4xl mx-auto sm:py-10">
       <div className="relative z-10 flex justify-center items-center  h-full ">
         <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 lg:gap-20  w-full">
           {/* Profile image section */}
@@ -177,9 +178,7 @@ function Intro() {
                 href="https://drive.google.com/file/d/1EmiyJ0ABDlbzbZv8mXdJDFg24dz8noJ2/view?usp=drive_link"
                 download
               >
-                <button className=" border rounded-lg px-3 py-2 font-bold">
-                  Download CV{" "}
-                </button>
+                <Heading className=" font-semibold">Download CV </Heading>
               </a>
             </div>
           </article>
@@ -191,6 +190,7 @@ function Intro() {
           <GoArrowDown className=" text-slate-400 animate-bounce" />
         </div>
       </div> */}
+      <div className=" absolute bottom-0 h-[0.4px] bg-gradient-to-r from-transparent via-cyan-50/30 to-transparent w-full"></div>
     </section>
   );
 }

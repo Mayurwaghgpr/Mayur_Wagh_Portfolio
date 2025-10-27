@@ -146,18 +146,12 @@ function TechStacks() {
   );
 
   return (
-    <section id="techstacks" className=" w-full py-20 ">
-      {/* Animated lines */}
-      <div className="absolute inset-0 overflow-hidden  ">
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-purple-500/20 to-transparent animate-pulse"></div>
-        <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-blue-500/20 to-transparent animate-pulse delay-700"></div>
-      </div>
-
-      <div className="relative z-10  flex flex-col items-center">
+    <section id="techstacks" className=" w-full ">
+      <div className="relative z-10  flex flex-col items-center sm:py-10">
         {/* Enhanced Header Section */}
         <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2  mb-8 ">
-            <Heading>Technology Stack</Heading>
+            <Heading className=" ">Technology Stack</Heading>
           </div>
 
           <p className=" text-xs sm:text-sm text-slate-300 max-w-3xl mx-auto leading-relaxed">
@@ -212,6 +206,7 @@ function TechStacks() {
           ))}
         </div>
       </div>
+      <div className=" absolute bottom-0 h-[0.4px] bg-gradient-to-r from-transparent via-cyan-50/30 to-transparent w-full"></div>
     </section>
   );
 }

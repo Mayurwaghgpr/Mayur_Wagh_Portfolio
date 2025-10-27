@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useIcon from "../hooks/useIcon";
 import type { ProjectType } from "commons_in_portfolio";
+import TimeAgo from "./TimeAgo";
 
 function ProjectCard({
   title,
@@ -8,6 +9,7 @@ function ProjectCard({
   links,
   images,
   technologies,
+  githubStatus,
 }: ProjectType) {
   const icons = useIcon();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -110,32 +112,48 @@ function ProjectCard({
         </div>
 
         {/* Links with enhanced buttons */}
-        <div className="flex items-center gap-3">
-          <span className="sm:text-sm text-xs font-medium text-gray-400">
-            Links:
-          </span>
-          {links.length > 0 &&
-            links.map((link, index) => {
-              return (
-                <a
-                  key={index}
-                  href={link.url}
-                  className="group/btn flex items-center justify-center gap-2 p-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 hover:from-purple-600/40 hover:to-blue-600/40 border border-purple-500/30 hover:border-purple-400/60 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20"
-                  aria-label={`View ${link.linkName}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="text-xs group-hover/btn:scale-110 transition-transform duration-300">
-                    {icons[link.linkName as keyof typeof icons]}
-                  </span>
-                </a>
-              );
-            })}
+        <div className="flex sm:flex-row flex-col justify-between sm:items-center gap-3 w-full">
+          <div className="flex items-center gap-3">
+            {" "}
+            <span className="sm:text-sm text-xs font-medium text-gray-400">
+              Links:
+            </span>
+            {links.length > 0 &&
+              links.map((link, index) => {
+                return (
+                  <a
+                    key={index}
+                    href={link.url}
+                    className="group/btn flex items-center justify-center gap-2 p-2 bg-gradient-to-r from-purple-600/20 to-blue-600/20 hover:from-purple-600/40 hover:to-blue-600/40 border border-purple-500/30 hover:border-purple-400/60 rounded-xl transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/20"
+                    aria-label={`View ${link.linkName}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="text-xs group-hover/btn:scale-110 transition-transform duration-300">
+                      {icons[link.linkName as keyof typeof icons]}
+                    </span>
+                  </a>
+                );
+              })}
+          </div>
+          <div className="text-xs flex sm:justify-center items-center gap-2">
+            {githubStatus && (
+              <>
+                {icons["github"]}
+                <span className="sm:text-sm text-xs font-medium text-gray-400">
+                  updated:
+                </span>
+                {githubStatus && (
+                  <TimeAgo date={githubStatus} className=" opacity-50" />
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
 
       {/* Bottom accent line */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
     </div>
   );
 }

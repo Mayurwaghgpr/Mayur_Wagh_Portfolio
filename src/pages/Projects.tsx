@@ -101,17 +101,21 @@ function Projects() {
   // ]
 
   return (
-    <section className="relative  w-full">
+    <section className="relative  w-full  border-inherit py-10 ">
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
       </div>
 
-      <div className="relative space-y-10 z-10 container  w-full ">
+      <div className="relative space-y-10 z-10 container  w-full  border-inherit  ">
         {/* Header Section */}
-        <div className={`text-start space-y-5 transition-all duration-1000`}>
-          <Heading>Projects</Heading>
+        <div
+          className={`text-start space-y-5 transition-all duration-1000  border-inherit `}
+        >
+          <Heading className=" p-1 rounded-lg border-inherit border -translate-x-1 -translate-y-1 hover:translate-x-0 hover:translate-y-0  w-fit">
+            Projects
+          </Heading>
 
           <p className="text-xs text-gray-600 dark:text-gray-300 max-w-2xl  leading-relaxed">
             A collection of projects delivered during internships and developed

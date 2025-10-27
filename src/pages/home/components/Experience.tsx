@@ -47,8 +47,11 @@ const experiences = [
 
 function Experience() {
   return (
-    <div className="flex flex-col justify-center items-start gap-5 w-full ">
-      <Heading>Work Experience</Heading>
+    <section className=" relative flex flex-col justify-center items-start gap-5 w-full py-10 ">
+      <Heading className=" bg-white p-1 rounded-lg border-inherit border -translate-x-1 -translate-y-1 hover:translate-x-0 hover:translate-y-0  w-fit">
+        Work Experience
+      </Heading>
+
       <div className="relative flex flex-col items-start justify-start gap-4  w-full h-full">
         {/* Timeline line */}
         <div className="absolute   left-2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 via-blue-500 to-transparent"></div>
@@ -105,7 +108,8 @@ function Experience() {
           </div>
         ))}
       </div>
-    </div>
+      <div className=" absolute bottom-0 h-[0.4px] bg-gradient-to-r from-transparent via-cyan-50/30 to-transparent w-full"></div>
+    </section>
   );
 }
 

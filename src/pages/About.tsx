@@ -1,25 +1,22 @@
 import { FaRocket, FaLightbulb } from "react-icons/fa";
+import Heading from "../components/Heading";
 
 function About() {
   return (
     <section
       id="about"
-      className="w-full min-h-screen sm:max-w-5xl mx-auto relative overflow-hidden"
+      className="w-full min-h-screen sm:max-w-5xl mx-auto relative py-20"
     >
       <div className="relative z-10 space-y-10 mx-auto">
         {/* Header Section */}
-        <div className="text-center">
-          <div
-            key={"story"}
-            className={`
-                flex items-center w-fit mx-auto gap-2 sm:px-6 sm:py-3 px-3 py-1.5 sm:text-base text-sm rounded-full font-semibold transition-all duration-300 transform hover:scale-105 backdrop-blur-sm bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-lg shadow-cyan-500/40
 
-              `}
-          >
+        <Heading className="">
+          {" "}
+          <div className="flex items-center justify-start gap-2">
             <FaLightbulb />
             My Story
           </div>
-        </div>
+        </Heading>
 
         {/* Tab Content */}
         <div className="bg-slate-800/20 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/20 min-h-[500px]">

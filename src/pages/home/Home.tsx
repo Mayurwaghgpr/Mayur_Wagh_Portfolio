@@ -6,10 +6,13 @@ import Projects from "../Projects";
 function Home() {
   return (
     <div className=" relative space-y-20 w-full sm:max-w-6xl px-5  mx-auto">
-      {" "}
-      <Intro />
-      <Experience />
-      <TechStacks />
+      <div className=" relative sm:max-w-5xl  space-y-20 ">
+        <Intro />
+
+        <Experience />
+        <TechStacks />
+      </div>
+
       <Projects />
     </div>
   );
