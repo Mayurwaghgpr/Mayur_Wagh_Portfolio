@@ -11,21 +11,11 @@ function CardSkeleton({}) {
     return () => clearInterval(interval);
   }, []);
   return (
-    <div className="relative group cursor-not-allowed  max-w-[40rem] w-full max-h-[40rem] border-inherit bg-black border   backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden">
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      </div>
-
+    <div className="relative group  max-w-[40rem] w-full max-h-[40rem] border-inherit bg-black border   backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden">
       <div className="relative flex flex-col items-start justify-center gap-4 w-full h-full p-6">
-        {/* Header */}
-        <div className="w-full">
-          <h3 className="font-bold  sm:text-lg text-base bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent group-hover:from-purple-200 group-hover:via-white group-hover:to-blue-200 transition-all duration-500 "></h3>
-        </div>
-
-        <div className="flex sm:flex-row flex-col justify-center sm:items-start items-center gap-6 w-full">
+        <div className="flex  flex-col justify-center sm:items-start items-center gap-6 w-full">
           {/* Image Section with Enhanced Styling */}
-          <div className="relative overflow-hidden rounded-xl group/img sm:h-28 h-40 sm:w-[10rem] w-full animate-pulse bg-gray-600/30 shrink-0">
+          <div className="relative overflow-hidden rounded-xl group/img h-52  w-full shrink-0">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 z-10" />
 
             {/* Image indicators */}

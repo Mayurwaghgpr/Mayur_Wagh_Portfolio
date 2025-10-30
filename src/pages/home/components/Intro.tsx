@@ -57,28 +57,27 @@ function Intro() {
   ];
 
   return (
-    <section id="intro" className="relative max-w-4xl mx-auto pb-20 pt-10">
-      <div className="relative z-10 flex justify-center items-center  h-full ">
-        <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 lg:gap-20  w-full">
+    <section id="intro" className="relative w-full  ">
+      <div className="relative z-10 flex justify-center items-center  h-full w-full ">
+        <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 ">
           {/* Profile image section */}
-          <div className="flex justify-center items-center relative ">
-            <div className="relative">
-              <div
-                className={`
+          <div className="flex justify-center items-center relative  w-fit">
+            <div
+              className={`
                 absolute inset-0 transition-all duration-1000 ease-out
            scale-110
               `}
-              >
-                <div className="absolute inset-0 border-2 border-cyan-500 rounded-full "></div>
-                <div className="absolute inset-2 border-2 border-blue-500/70 rounded-full "></div>
-                <div className="absolute inset-4 border border-sky-500/50 rounded-full "></div>
-              </div>
+            >
+              <div className="absolute inset-0 border-2 border-cyan-500 rounded-full "></div>
+              <div className="absolute inset-2 border-2 border-blue-500/70 rounded-full "></div>
+              <div className="absolute inset-4 border border-sky-500/50 rounded-full "></div>
+            </div>
 
-              {/* Profile Image */}
-              <div
-                className={`
+            {/* Profile Image */}
+            <div
+              className={`
                   relative transition-all duration-700 ease-out transform
-                  w-32 h-32 lg:w-40 lg:h-40
+                  w-32 h-32 lg:w-36 lg:h-36
 
                   rounded-full overflow-hidden cursor-pointer group
                   shadow-2xl shadow-purple-500/30 hover:shadow-purple-400/40
@@ -89,62 +88,60 @@ function Intro() {
                       : "opacity-0 translate-y-8"
                   }
                 `}
-                style={{ transitionDelay: mounted ? "300ms" : "0ms" }}
-              >
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-transparent to-blue-600/30 group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition-all duration-500 rounded-full z-10"></div>
+              style={{ transitionDelay: mounted ? "300ms" : "0ms" }}
+            >
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-transparent to-blue-600/30 group-hover:from-purple-500/40 group-hover:to-blue-500/40 transition-all duration-500 rounded-full z-10"></div>
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-40 transition-opacity duration-300 rounded-full z-20"></div>
+              {/* Hover overlay */}
+              <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-40 transition-opacity duration-300 rounded-full z-20"></div>
 
-                {/* Image */}
-                <img
-                  className="w-full h-full object-cover object-center"
-                  src={profileImage}
-                  alt="Mayur Wagh"
-                />
-              </div>
+              {/* Image */}
+              <img
+                className="w-full h-full object-cover object-center"
+                src={profileImage}
+                alt="Mayur Wagh"
+              />
+            </div>
 
-              {/* Social Icons Container */}
-              <div
-                className={`
+            {/* Social Icons Container */}
+            <div
+              className={`
                 absolute inset-0 transition-all duration-700 ease-out
 
               `}
-              >
-                <div className="relative w-full h-full text-sm">
-                  {socialLinks.map((link, i) => (
-                    <a
-                      key={i}
-                      href={link.href}
-                      target={
-                        link.href.startsWith("http") ? "_blank" : undefined
-                      }
-                      rel="noopener noreferrer"
-                      aria-label={link.label}
-                      className={`${link.position} group p-2 bg-slate-800/80 backdrop-blur-sm 
+            >
+              <div className="relative w-full h-full text-sm">
+                {socialLinks.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    className={`${link.position} group p-2 bg-slate-800/80 backdrop-blur-sm 
             text-slate-200 ${link.hoverColor} hover:text-white 
             transition-all duration-300 transform hover:scale-110 
             rounded-full shadow-lg shadow-black/30 border border-slate-600/50`}
-                    >
-                      {link.icon}
-                      {/* Tooltip */}
-                      <div
-                        className={`${link.tooltipPosition} bg-slate-700 text-white px-2 py-1 
+                  >
+                    {link.icon}
+                    {/* Tooltip */}
+                    <div
+                      className={`${link.tooltipPosition} bg-slate-700 text-white px-2 py-1 
               rounded text-xs opacity-0 group-hover:opacity-100 
               transition-opacity duration-300 whitespace-nowrap shadow-lg`}
-                      >
-                        {link.label}
-                      </div>
-                    </a>
-                  ))}
-                </div>
+                    >
+                      {link.label}
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
           {/* Text Content */}
           <article
             className={`
+              w-full
               space-y-8
             transition-all duration-1000 ease-out transform
             ${mounted ? "" : "opacity-0"}

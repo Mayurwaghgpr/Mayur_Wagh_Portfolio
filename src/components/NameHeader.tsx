@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import profileImage from "/profileimage.png";
 function NameHeader() {
   return (
-    <div className=" fixed top-5 sm:left-[15%] left-2 flex justify-center gap-3 items-center overflow-hidden  p-2.5 py-1.5 rounded-full  text-white border w-fit bg-black bg-opacity-20 z-40 backdrop-blur-xl">
+    <div className=" flex justify-center gap-3 items-center overflow-hidden  p-2.5 py-1.5 rounded-full  text-white border w-fit bg-black bg-opacity-20 z-40 backdrop-blur-xl">
       <Link to={"/"} className="flex items-center gap-3 w-full h-full">
         <div className="relative sm:w-6 sm:h-6 w-5 h-5 rounded-full overflow-hidden ">
           <img

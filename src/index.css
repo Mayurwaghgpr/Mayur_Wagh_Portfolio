@@ -7,9 +7,12 @@
   padding: 0;
   /* font-family: 'Fira Code', Menlo, Monaco, Consolas, monospace; */
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-  border-color: #484848;
+  border-color: #2a2929;
+}
+html{
+  scroll-behavior: smooth;
+  scroll-snap-type: mandatory;
 }
 body{
   background: #000000;
-
 }

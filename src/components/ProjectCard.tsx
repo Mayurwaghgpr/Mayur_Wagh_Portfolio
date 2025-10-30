@@ -26,22 +26,10 @@ function ProjectCard({
 
   return (
     <div className="relative group  max-w-[40rem] w-full max-h-[40rem] border-inherit bg-black border   backdrop-blur-2xl rounded-2xl shadow-2xl overflow-hidden">
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-      </div>
-
       <div className="relative flex flex-col items-start justify-center gap-4 w-full h-full p-6">
-        {/* Header */}
-        <div className="w-full">
-          <h3 className="font-bold  sm:text-lg text-base bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent group-hover:from-purple-200 group-hover:via-white group-hover:to-blue-200 transition-all duration-500">
-            {title}
-          </h3>
-        </div>
-
-        <div className="flex sm:flex-row flex-col justify-center sm:items-start items-center gap-6 w-full">
+        <div className="flex  flex-col justify-center sm:items-start items-center gap-6 w-full">
           {/* Image Section with Enhanced Styling */}
-          <div className="relative overflow-hidden rounded-xl group/img sm:h-28 h-40 sm:w-[10rem] w-full shrink-0">
+          <div className="relative overflow-hidden rounded-xl group/img h-52  w-full shrink-0">
             <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 z-10" />
 
             {images.map((image, index) => (
@@ -75,7 +63,14 @@ function ProjectCard({
           </div>
 
           {/* Description with fade effect */}
-          <div className="relative flex-grow overflow-hidden min-w-[70%]">
+          <div className="relative flex-row gap-4 overflow-hidden min-w-[70%]">
+            {" "}
+            {/* Header */}
+            <div className="w-full">
+              <h3 className="font-bold  sm:text-lg text-base bg-gradient-to-r from-white via-white to-gray-400 bg-clip-text text-transparent group-hover:from-purple-200 group-hover:via-white group-hover:to-blue-200 transition-all duration-500">
+                {title}
+              </h3>
+            </div>
             <p className="text-xs text-gray-300 leading-relaxed line-clamp-7">
               {description}
             </p>
@@ -86,7 +81,7 @@ function ProjectCard({
         {/* Technologies with enhanced styling */}
         <div className="relative flex justify-start items-center flex-wrap gap-2 w-full">
           <span className="text-xs font-medium text-gray-400">Tech Stack:</span>
-          {technologies.slice(0, 10).map((tech, index) => (
+          {technologies.slice(0, 15).map((tech, index) => (
             <div key={index} className="group/tech relative">
               <div className="flex items-center text-base gap-2 p-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 rounded-full transition-all duration-300 cursor-default">
                 <span className="flex text-xs peer w-fit">
@@ -103,10 +98,10 @@ function ProjectCard({
               </div>
             </div>
           ))}
-          {technologies.length > 10 && (
+          {technologies.length > 15 && (
             <span className="flex items-center gap-2 p-1 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-purple-500/50 rounded-full transition-all duration-300 cursor-default text-[10px] leading-3">
               {" "}
-              +{technologies.slice(10).length}{" "}
+              +{technologies.slice(15).length}{" "}
             </span>
           )}
         </div>

@@ -126,11 +126,11 @@ function Projects() {
 
         {/* Projects Grid */}
         <div
-          className={`flex justify-start items-center  xl:flex-nowrap flex-wrap  gap-5 justify-items-center transition-all duration-1000 delay-500 w-full `}
+          className={`flex justify-start items-center  xl:flex-nowrap flex-wrap  gap-5 justify-items-center transition-all duration-1000 delay-500 w-full border-inherit `}
         >
           {!isLoading ? (
             projects?.map((project, index) => (
-              <div key={index} className="w-full h-full">
+              <div key={index} className="w-full h-full border-inherit">
                 <ProjectCard {...project} />
               </div>
             ))
