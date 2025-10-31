@@ -171,7 +171,7 @@ function Intro() {
                 Trying make something different in shadows 🥷🏻
               </h3>
               <a
-                href="https://drive.google.com/file/d/1EmiyJ0ABDlbzbZv8mXdJDFg24dz8noJ2/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1hduw5_bLOIxf3O7NhFU9_h96Z9JRr4yL/view?usp=drive_link"
                 download
               >
                 <Heading className=" font-semibold">Download CV </Heading>
