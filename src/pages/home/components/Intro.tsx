@@ -60,7 +60,7 @@ function Intro() {
   return (
     <section id="intro" className="relative w-full py-10">
       <div className="relative z-10 flex justify-center items-center  h-full w-full ">
-        <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-16 ">
+        <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center sm:gap-10 gap-16 ">
           {/* Profile image section */}
           <div className="flex justify-center items-center relative  w-fit">
             <div
