@@ -65,7 +65,7 @@ function GithubHeatMap() {
   return (
     <div className=" space-y-5">
       <h2 className="text-2xl font-semibold">GitHub Activity</h2>
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 text-center mb-6">
+      <div className="grid  sm:grid-cols-4 grid-cols-1  gap-2 text-center mb-6 text-nowrap">
         <div className="flex items-center gap-3 text-nowrap">
           <p className="text-sm">{stats.totalContributions}</p>
           <p className="text-gray-500 text-sm"> Total Contribution</p>

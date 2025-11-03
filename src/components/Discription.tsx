@@ -9,7 +9,7 @@ export default function Discription({
 }) {
   return (
     <div
-      className={`text-slate-300/60 mb-4 font-thin  leading-relaxed ${className}`}
+      className={`text-slate-300/60  font-thin  leading-relaxed ${className}`}
     >
       {children}
     </div>

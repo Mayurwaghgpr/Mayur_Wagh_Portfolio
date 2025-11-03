@@ -3,6 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import Heading from "./Heading";
 import useIcon from "../hooks/useIcon";
 import type { TechObj } from "../types";
+import Discription from "./Discription";
 
 function TechStacks() {
   const [mounted, setMounted] = useState(false);
@@ -146,22 +147,19 @@ function TechStacks() {
   );
 
   return (
-    <section id="techstacks" className=" w-full py-10 ">
-      <div className="relative z-10  flex flex-col items-center ">
+    <section id="techstacks" className=" w-full">
+      <div className="relative z-10 gap-5  flex flex-col items-start ">
         {/* Enhanced Header Section */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2  mb-8 ">
-            <Heading className=" ">Technology Stack</Heading>
-          </div>
-
-          <p className=" text-xs sm:text-sm text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        <div className="text-start">
+          <Heading className="mb-2">Skills</Heading>
+          <Discription>
             Technologies I leverage to build scalable, performant, and modern
             applications that solve real-world problems
-          </p>
+          </Discription>
         </div>
 
         {/* Enhanced Tech Grid */}
-        <div className="flex items-center justify-center gap-8 space-y-1 flex-wrap  sm:px-0 px-4">
+        <div className="flex items-center justify-start gap-5 flex-wrap sm:w-10/12 ">
           {technologies.map((tech, idx) => (
             <div
               key={`${tech.text}`}
@@ -176,18 +174,18 @@ function TechStacks() {
               }}
             >
               {/* Main Card */}
-              <div className="relative ">
+              <div className=" flex justify-center  relative  ">
                 {/* Icon Section */}
-                <div className="relative flex items-center justify-center mb-6">
+                <div className="relative flex items-center justify-center peer">
                   <div className="relative group">
                     {/* Icon Background Effects */}
                     <div className="absolute inset-0 group-hover:opacity-100 opacity-0 bg-gradient-to-r from-blue-600/50 to-blue-600/50 rounded-full blur-md group-hover:blur-xl transition-all duration-300 scale-150 "></div>
                     {/* <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full group-hover:scale-125 transition-transform duration-500 blur-sm"></div> */}
 
                     {/* Main Icon */}
-                    <div className="relative border  backdrop-blur-sm rounded-full sm:p-4 p-2 transition-all duration-300">
+                    <div className="relative border  backdrop-blur-sm rounded-full   p-2 transition-all duration-300">
                       <span
-                        className={`sm:text-2xl text-xl ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}
+                        className={`sm:text-lg text-sm ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}
                       >
                         {icons[tech.icon]}
                       </span>
@@ -196,8 +194,10 @@ function TechStacks() {
                 </div>
 
                 {/* Content */}
-                <div className="relative text-center space-y-4">
-                  <h3 className="sm:text-sm text-xs font-medium text-slate-100 group-hover:text-white transition-colors duration-300">
+                <div
+                  className={`absolute transition-all duration-300 peer-hover:opacity-100 peer-hover:pointer-events-auto pointer-events-none opacity-0 ${tech.text}  bg-white text-black p-1 rounded-lg text-nowrap before:w-2 before:h-2 before:absolute before:-bottom-0.5  before:rotate-45 before:left-[45%] before:bg-white -top-8   text-center space-y-4 `}
+                >
+                  <h3 className=" text-xs  transition-colors duration-300">
                     {tech.text}
                   </h3>
                 </div>

@@ -6,6 +6,7 @@ import profileImage from "/profileimage.png";
 import Discription from "../../../components/Discription";
 import { FiMail } from "react-icons/fi";
 import Heading from "../../../components/Heading";
+import { TbFileCv } from "react-icons/tb";
 type SocialLink = {
   href: string;
   label: string;
@@ -57,7 +58,7 @@ function Intro() {
   ];
 
   return (
-    <section id="intro" className="relative w-full  ">
+    <section id="intro" className="relative w-full py-10">
       <div className="relative z-10 flex justify-center items-center  h-full w-full ">
         <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 ">
           {/* Profile image section */}
@@ -150,10 +151,10 @@ function Intro() {
           >
             <div className="space-y-6 ">
               <div className="space-y-5">
-                <h2 className="text-2xl lg:text-4xl font-bold text-slate-100">
-                  Driven by tech,I'm a{" "}
+                <h2 className="text-2xl lg:text-4xl font-semibold text-slate-100">
+                  Hey, I'm Mayur,{" "}
                   <span className=" text-transparent bg-clip-text text-clip bg-gradient-to-r from-cyan-200 via-blue-500 to-blue-400 ">
-                    Software Developer
+                    A Full Stack Developer
                   </span>
                 </h2>
                 <Discription>
@@ -174,7 +175,9 @@ function Intro() {
                 href="https://drive.google.com/file/d/1hduw5_bLOIxf3O7NhFU9_h96Z9JRr4yL/view?usp=drive_link"
                 download
               >
-                <Heading className=" font-semibold">Download CV </Heading>
+                <Heading className=" flex items-center gap-1 font-semibold text-sm border-dashed border-2">
+                  <TbFileCv /> Download CV{" "}
+                </Heading>
               </a>
             </div>
           </article>
@@ -185,6 +188,7 @@ function Intro() {
         <div className="absolute left-1/2 transform -translate-x-1/2">
           <GoArrowDown className=" text-slate-400 animate-bounce" />
         </div>
+        
       </div> */}
       <div className=" absolute bottom-0 h-[0.4px] bg-gradient-to-r from-transparent via-cyan-50/30 to-transparent w-full"></div>
     </section>

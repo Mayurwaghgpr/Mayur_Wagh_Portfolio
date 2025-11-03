@@ -98,6 +98,7 @@ function About() {
       <div className="relative z-10 space-y-10 mx-auto">
         {/* Header */}
         <Heading>
+          <span className="text-sm font-normal opacity-50">Aboute </span>
           <div className="flex items-center justify-start gap-2">
             <FaLightbulb />
             My Story

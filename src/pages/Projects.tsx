@@ -4,6 +4,7 @@ import ProjectCard from "../components/ProjectCard";
 import axiosInstance from "../utils/axiosInstance";
 import type { ProjectType } from "commons_in_portfolio";
 import CardSkeleton from "../components/CardSkeleton";
+import Discription from "../components/Discription";
 function Projects() {
   const {
     data: projects,
@@ -111,17 +112,15 @@ function Projects() {
       <div className="relative space-y-10 z-10 container  w-full  border-inherit  ">
         {/* Header Section */}
         <div
-          className={`text-start space-y-5 transition-all duration-1000  border-inherit `}
+          className={`text-start transition-all duration-1000  border-inherit `}
         >
-          <Heading className=" p-1 rounded-lg border-inherit border -translate-x-1 -translate-y-1 hover:translate-x-0 hover:translate-y-0  w-fit">
-            Projects
-          </Heading>
+          <Heading className=" border-inherit w-fit">Projects</Heading>
 
-          <p className="text-xs text-gray-600 dark:text-gray-300 max-w-2xl  leading-relaxed">
+          <Discription>
             A collection of projects delivered during internships and developed
             personally, showcasing expertise in modern web technologies and
             innovative solutions.
-          </p>
+          </Discription>
         </div>
 
         {/* Projects Grid */}
