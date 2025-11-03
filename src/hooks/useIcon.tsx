@@ -31,7 +31,7 @@ import { VscCode } from "react-icons/vsc";
 import { TbBrandOauth } from "react-icons/tb";
 import { ReactElement } from "react";
 
-import { BsPerson } from "react-icons/bs";
+import { BsMicrosoftTeams, BsPerson } from "react-icons/bs";
 import { MdOutlineContacts } from "react-icons/md";
 import { HiOutlineHome } from "react-icons/hi";
 type IconName =
@@ -67,7 +67,8 @@ type IconName =
   | "vercel"
   | "render"
   | "liveLink"
-  | "geminiAi";
+  | "geminiAi"
+  | "microsoftTeams";
 
 type IconMap = Record<IconName, ReactElement>;
 
@@ -108,6 +109,7 @@ function useIcon(): IconMap {
     vercel: <SiVercel />,
     render: <SiRender />,
     liveLink: <RiLinksFill />,
+    microsoftTeams: <BsMicrosoftTeams />,
   };
   return icons;
 }

@@ -1,5 +1,6 @@
-import { FaRocket, FaLightbulb } from "react-icons/fa";
+import { FaLightbulb } from "react-icons/fa";
 import Heading from "../components/Heading";
+import GithubHeatMap from "../components/GithubHeatMap";
 
 function About() {
   const storySections = [
@@ -93,10 +94,7 @@ function About() {
   ];
 
   return (
-    <section
-      id="about"
-      className="w-full min-h-screen sm:max-w-5xl mx-auto relative py-20"
-    >
+    <section id="about" className="w-full min-h-screen  relative py-20">
       <div className="relative z-10 space-y-10 mx-auto">
         {/* Header */}
         <Heading>
@@ -107,8 +105,8 @@ function About() {
         </Heading>
 
         {/* Story Section */}
-        <div className="bg-slate-800/20 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/20 min-h-[500px]">
-          <div className="space-y-6 animate-fadeIn">
+        <div className=" bg-slate-800/20 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/20 min-h-[500px]">
+          <div className="space-y-20 animate-fadeIn">
             <div className=" max-w-none lg:text-base sm:text-sm text-xs">
               {storySections.map((section, index) => (
                 <div
@@ -127,64 +125,8 @@ function About() {
                   </p>
                 </div>
               ))}
-
-              {/* Mission and Approach Section */}
-              <div className="grid md:grid-cols-2 gap-8 mt-8">
-                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <FaRocket className="text-purple-400" />
-                    My Mission
-                  </h3>
-                  <p className="text-slate-300">
-                    To create technology that bridges the gap between complex
-                    problems and elegant solutions. I believe in writing clean,
-                    maintainable code that not only works — but tells a story.
-                  </p>
-                </div>
-
-                <div className="bg-slate-800/40 backdrop-blur-sm rounded-xl p-6 border border-slate-600/30">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <FaLightbulb className="text-blue-400" />
-                    My Approach
-                  </h3>
-                  <p className="text-slate-300">
-                    I focus on understanding the 'why' and 'how' behind every
-                    project. Whether it’s optimizing performance or crafting
-                    user interfaces, I aim to build solutions that are
-                    technically challenging and creatively satisfying.
-                  </p>
-                </div>
-              </div>
-
-              {/* Quick Facts */}
-              <div className="mt-8 bg-gradient-to-r from-cyan-900/20 to-blue-900/20 rounded-xl p-6 border border-purple-500/20">
-                <h3 className="text-xl font-bold text-white mb-4">
-                  Quick Facts
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                  <div>
-                    <div className="text-2xl font-bold text-purple-300">1+</div>
-                    <div className="text-sm text-slate-400">
-                      Years Experience
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-blue-300">8+</div>
-                    <div className="text-sm text-slate-400">
-                      Projects Completed
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-green-300">10+</div>
-                    <div className="text-sm text-slate-400">Technologies</div>
-                  </div>
-                  <div>
-                    <div className="text-2xl font-bold text-orange-300">∞</div>
-                    <div className="text-sm text-slate-400">Water Consumed</div>
-                  </div>
-                </div>
-              </div>
             </div>
+            <GithubHeatMap />
           </div>
         </div>
       </div>
