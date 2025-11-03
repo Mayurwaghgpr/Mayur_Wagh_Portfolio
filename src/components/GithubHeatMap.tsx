@@ -75,12 +75,12 @@ function GithubHeatMap() {
           <p className="text-gray-500 text-sm">Total Commits</p>
         </div>
       </div>
-      <div className="p-5 rounded-lg border">
+      <div className="p-3 rounded-lg border">
         <GitHubCalendar
           colorScheme="dark"
           username="Mayurwaghgpr"
-          blockSize={10}
-          blockMargin={4}
+          blockSize={9}
+          blockMargin={3}
         />
       </div>
     </div>

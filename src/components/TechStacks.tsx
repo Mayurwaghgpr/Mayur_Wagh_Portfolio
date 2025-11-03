@@ -4,6 +4,7 @@ import Heading from "./Heading";
 import useIcon from "../hooks/useIcon";
 import type { TechObj } from "../types";
 import Discription from "./Discription";
+import { GrTechnology } from "react-icons/gr";
 
 function TechStacks() {
   const [mounted, setMounted] = useState(false);
@@ -150,8 +151,11 @@ function TechStacks() {
     <section id="techstacks" className=" w-full">
       <div className="relative z-10 gap-5  flex flex-col items-start ">
         {/* Enhanced Header Section */}
-        <div className="text-start">
-          <Heading className="mb-2">Skills</Heading>
+        <div className="text-start space-y-2 ">
+          <Heading className="flex items-center gap-1">
+            {" "}
+            <GrTechnology /> Skills
+          </Heading>
           <Discription>
             Technologies I leverage to build scalable, performant, and modern
             applications that solve real-world problems

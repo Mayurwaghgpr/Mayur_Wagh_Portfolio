@@ -60,7 +60,7 @@ function Intro() {
   return (
     <section id="intro" className="relative w-full py-10">
       <div className="relative z-10 flex justify-center items-center  h-full w-full ">
-        <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-12 ">
+        <div className="container flex lg:flex-row flex-col-reverse justify-center sm:items-start items-center gap-16 ">
           {/* Profile image section */}
           <div className="flex justify-center items-center relative  w-fit">
             <div
@@ -79,15 +79,11 @@ function Intro() {
               className={`
                   relative transition-all duration-700 ease-out transform
                   w-32 h-32 lg:w-36 lg:h-36
-
+                  z-10
                   rounded-full overflow-hidden cursor-pointer group
                   shadow-2xl shadow-purple-500/30 hover:shadow-purple-400/40
                   ring-4 ring-purple-500/40 hover:ring-purple-400/60
-                  ${
-                    mounted
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-8"
-                  }
+         
                 `}
               style={{ transitionDelay: mounted ? "300ms" : "0ms" }}
             >
@@ -108,8 +104,9 @@ function Intro() {
             {/* Social Icons Container */}
             <div
               className={`
-                absolute inset-0 transition-all duration-700 ease-out
+                absolute inset-0  transition-all duration-700 ease-out
 
+                ${mounted ? "scale-100 " : "scale-0   -z-10     -rotate-45"}
               `}
             >
               <div className="relative w-full h-full text-sm">
@@ -169,10 +166,10 @@ function Intro() {
             </div>
             <div className="flex sm:flex-row flex-col justify-between gap-4 sm:items-center text-xs">
               <h3 className="text-slate-300 ">
-                Trying make something different in shadows 🥷🏻
+                Trying to make something different in shadows 🥷🏻
               </h3>
               <a
-                href="https://drive.google.com/file/d/1hduw5_bLOIxf3O7NhFU9_h96Z9JRr4yL/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1zoOsA9BbZb7ZN6EYBKzzO90WzODP2re1/view?usp=drive_link"
                 download
               >
                 <Heading className=" flex items-center gap-1 p-2 font-semibold text-sm border-dashed border-2">

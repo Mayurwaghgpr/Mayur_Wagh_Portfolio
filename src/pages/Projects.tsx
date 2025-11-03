@@ -5,6 +5,7 @@ import axiosInstance from "../utils/axiosInstance";
 import type { ProjectType } from "commons_in_portfolio";
 import CardSkeleton from "../components/CardSkeleton";
 import Discription from "../components/Discription";
+import { GrProjects } from "react-icons/gr";
 function Projects() {
   const {
     data: projects,
@@ -112,9 +113,11 @@ function Projects() {
       <div className="relative space-y-10 z-10 container  w-full  border-inherit  ">
         {/* Header Section */}
         <div
-          className={`text-start transition-all duration-1000  border-inherit `}
+          className={`text-start transition-all duration-1000 space-y-2  border-inherit `}
         >
-          <Heading className=" border-inherit w-fit">Projects</Heading>
+          <Heading className="flex items-center justify-start gap-1 border-inherit w-fit">
+            <GrProjects className="text-sm" /> Projects
+          </Heading>
 
           <Discription>
             A collection of projects delivered during internships and developed

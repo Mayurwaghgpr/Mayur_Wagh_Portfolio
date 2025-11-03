@@ -1,4 +1,4 @@
-import { MdLocationOn, MdTimeline } from "react-icons/md";
+import { MdLocationOn, MdOutlineWorkOutline, MdTimeline } from "react-icons/md";
 import Heading from "../../../components/Heading";
 import Discription from "../../../components/Discription";
 const experiences = [
@@ -48,7 +48,11 @@ const experiences = [
 function Experience() {
   return (
     <section className=" relative flex flex-col justify-center items-start gap-5 w-full py-10 ">
-      <Heading className="">Work Experience</Heading>
+      <Heading className="flex items-center gap-1">
+        {" "}
+        <MdOutlineWorkOutline />
+        Work Experience
+      </Heading>
 
       <div className="relative flex flex-col items-start justify-start gap-4  w-full h-full">
         {/* Timeline line */}

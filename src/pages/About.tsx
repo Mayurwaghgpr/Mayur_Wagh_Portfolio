@@ -94,11 +94,11 @@ function About() {
   ];
 
   return (
-    <section id="about" className="w-full min-h-screen  relative py-20">
-      <div className="relative z-10 space-y-10 mx-auto">
+    <section id="about" className="w-full h-full relative pt-20">
+      <div className="relative z-10 space-y-10">
         {/* Header */}
-        <Heading>
-          <span className="text-sm font-normal opacity-50">Aboute </span>
+        <Heading className="space-y-2 ">
+          <span className="text-sm font-normal opacity-50">About </span>
           <div className="flex items-center justify-start gap-2">
             <FaLightbulb />
             My Story
