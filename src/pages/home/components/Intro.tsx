@@ -183,13 +183,6 @@ function Intro() {
           </article>
         </div>
       </div>
-      {/* <div className="absolute bottom-8 w-full text-xl">
-        Scroll indicator
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <GoArrowDown className=" text-slate-400 animate-bounce" />
-        </div>
-        
-      </div> */}
       <div className=" absolute bottom-0 h-[0.4px] bg-gradient-to-r from-transparent via-cyan-50/30 to-transparent w-full"></div>
     </section>
   );
