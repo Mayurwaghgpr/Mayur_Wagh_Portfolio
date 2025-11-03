@@ -175,7 +175,7 @@ function Intro() {
                 href="https://drive.google.com/file/d/1hduw5_bLOIxf3O7NhFU9_h96Z9JRr4yL/view?usp=drive_link"
                 download
               >
-                <Heading className=" flex items-center gap-1 font-semibold text-sm border-dashed border-2">
+                <Heading className=" flex items-center gap-1 p-2 font-semibold text-sm border-dashed border-2">
                   <TbFileCv /> Download CV{" "}
                 </Heading>
               </a>
