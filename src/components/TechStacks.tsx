@@ -72,6 +72,14 @@ function TechStacks() {
         description: "Scalable server-side JavaScript runtime",
       },
       {
+        icon: "graphql",
+        text: "GraphQL",
+        color: "text-pink-400",
+        category: "Backend",
+        description:
+          "Query language for APIs and a runtime for fulfilling queries",
+      },
+      {
         icon: "express",
         text: "Express.js",
         color: "text-slate-300",

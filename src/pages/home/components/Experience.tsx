@@ -3,6 +3,22 @@ import Heading from "../../../components/Heading";
 import Discription from "../../../components/Discription";
 const experiences = [
   {
+    title: "Backend Developer ",
+    company: "SecurityBoat",
+    period: "Nov 2025 - present",
+    location: "Pune, India",
+    description: (
+      <ul className=" list-disc">
+        {" "}
+        <li>
+          Developed GraphQl and RESTful APIs using Node.js, Apollo server,
+          Express,PostgreSql and MongoDB.
+        </li>
+      </ul>
+    ),
+    technologies: ["React", "Node.js", "Express", "MongoDB", "Next.js"],
+  },
+  {
     title: "Software Developer Intern",
     company: "Webseeder Ltd",
     period: "Dec 2024 - Sept 2025",

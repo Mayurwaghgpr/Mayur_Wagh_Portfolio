@@ -34,6 +34,7 @@ import { ReactElement } from "react";
 import { BsMicrosoftTeams, BsPerson } from "react-icons/bs";
 import { MdOutlineContacts } from "react-icons/md";
 import { HiOutlineHome } from "react-icons/hi";
+import { GrGraphQl } from "react-icons/gr";
 type IconName =
   | "home"
   | "about"
@@ -50,6 +51,7 @@ type IconName =
   | "redux"
   | "vite"
   | "nodejs"
+  | "graphql"
   | "express"
   | "mongodb"
   | "postgresql"
@@ -90,6 +92,7 @@ function useIcon(): IconMap {
     vite: <SiVite />,
 
     nodejs: <FaNodeJs />,
+    graphql: <GrGraphQl />,
     express: <SiExpress />,
     mongodb: <SiMongodb />,
     postgresql: <SiPostgresql />,
