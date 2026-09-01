@@ -147,78 +147,59 @@ function TechStacks() {
         icon: "geminiAi",
         text: "Google Gemini",
         color:
-          "bg-gradient-to-br from-blue-400 via-pink-600/50 to-white bg-clip-text text-clip text-transperent ",
+          "bg-gradient-to-br from-blue-400 via-purple-300 to-pink-400 bg-clip-text text-transparent",
         category: "Backend",
-        description: "Testing apis and apis documentation",
+        description: "AI Integration & APIs",
       },
     ],
     []
   );
 
   return (
-    <section id="techstacks" className=" w-full">
-      <div className="relative z-10 gap-5  flex flex-col items-start ">
-        {/* Enhanced Header Section */}
-        <div className="text-start space-y-2 ">
-          <Heading className="flex items-center gap-1">
-            {" "}
-            <GrTechnology /> Skills
+    <section id="techstacks" className="relative w-full py-10">
+      <div className="relative z-10 gap-6 flex flex-col items-start">
+        {/* Header Section */}
+        <div className="text-start space-y-2">
+          <Heading className="flex items-center gap-2 text-purple-400">
+            <GrTechnology className="text-xl" />
+            <span>Skills & Tech Stack</span>
           </Heading>
           <Discription>
-            Technologies I leverage to build scalable, performant, and modern
-            applications that solve real-world problems
+            Technologies I leverage to build scalable, performant, and modern full-stack applications.
           </Discription>
         </div>
 
-        {/* Enhanced Tech Grid */}
-        <div className="flex items-center justify-start gap-5 flex-wrap sm:w-10/12 ">
+        {/* Tech Grid Pills */}
+        <div className="flex items-center justify-start gap-3 sm:gap-4 flex-wrap w-full">
           {technologies.map((tech, idx) => (
             <div
-              key={`${tech.text}`}
-              className="group relative "
+              key={`${tech.text}-${idx}`}
+              className="group relative"
               style={{
-                animationDelay: `${idx * 100}ms`,
                 opacity: mounted ? 1 : 0,
                 transform: mounted
                   ? "translateY(0) scale(1)"
-                  : "translateY(30px) scale(0.9)",
-                transition: "all 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
+                  : "translateY(20px) scale(0.95)",
+                transition: `all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ${idx * 30}ms`,
               }}
             >
-              {/* Main Card */}
-              <div className=" flex justify-center  relative  ">
-                {/* Icon Section */}
-                <div className="relative flex items-center justify-center peer">
-                  <div className="relative group">
-                    {/* Icon Background Effects */}
-                    <div className="absolute inset-0 group-hover:opacity-100 opacity-0 bg-gradient-to-r from-blue-600/50 to-blue-600/50 rounded-full blur-md group-hover:blur-xl transition-all duration-300 scale-150 "></div>
-                    {/* <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full group-hover:scale-125 transition-transform duration-500 blur-sm"></div> */}
+              {/* Skill Pill Card */}
+              <div className="flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-slate-900/60 backdrop-blur-md border border-slate-800/80 hover:border-slate-700/80 hover:bg-slate-800/60 shadow-md transition-all duration-300 group-hover:scale-[1.03] group-hover:-translate-y-0.5 cursor-default">
+                <span className={`text-lg sm:text-xl ${tech.color} drop-shadow`}>
+                  {icons[tech.icon]}
+                </span>
+                <span className="text-xs sm:text-sm font-medium text-slate-200 group-hover:text-white transition-colors">
+                  {tech.text}
+                </span>
 
-                    {/* Main Icon */}
-                    <div className="relative border  backdrop-blur-sm rounded-full   p-2 transition-all duration-300">
-                      <span
-                        className={`sm:text-lg text-sm ${tech.color} transition-all duration-500 group-hover:scale-110 block drop-shadow-2xl`}
-                      >
-                        {icons[tech.icon]}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div
-                  className={`absolute transition-all duration-300 peer-hover:opacity-100 peer-hover:pointer-events-auto pointer-events-none opacity-0 ${tech.text}  bg-white text-black p-1 rounded-lg text-nowrap before:w-2 before:h-2 before:absolute before:-bottom-0.5  before:rotate-45 before:left-[45%] before:bg-white -top-8   text-center space-y-4 `}
-                >
-                  <h3 className=" text-xs  transition-colors duration-300">
-                    {tech.text}
-                  </h3>
-                </div>
+                {/* Subtle Glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className=" absolute bottom-0 h-[0.4px] bg-gradient-to-r from-transparent via-cyan-50/30 to-transparent w-full"></div>
+      <div className="absolute bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent w-full"></div>
     </section>
   );
 }

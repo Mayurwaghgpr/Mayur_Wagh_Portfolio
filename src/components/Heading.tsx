@@ -2,18 +2,18 @@ import type React from "react";
 
 function Heading({
   children,
-  className = "xl:text-lg sm:text-xs text-base ",
+  className = "",
 }: {
   children: React.ReactNode;
   className?: string;
 }) {
   return (
-    <div className="relative  rounded-lg   border-inherit  text-xl">
-      <div
-        className={`font-bold  rounded-lg border-inherit w-fit ${className} `}
+    <div className="relative border-inherit">
+      <h2
+        className={`font-bold tracking-tight text-slate-100 text-lg sm:text-xl md:text-2xl w-fit ${className}`}
       >
         {children}
-      </div>
+      </h2>
     </div>
   );
 }

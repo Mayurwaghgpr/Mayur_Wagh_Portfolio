@@ -43,154 +43,117 @@ function Nav() {
   return (
     <header
       className={`
-        sticky top-5 w-full   transform  z-50 
-        transition-all duration-500 ease-out flex  justify-between
+        sticky top-4 w-full z-50 
+        transition-all duration-500 ease-out flex items-center justify-between
         ${mounted ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}
-        ${isScrolled ? "scale-95" : "scale-100"}
-      
+        ${isScrolled ? "py-1" : "py-2"}
       `}
     >
       <NameHeader />
+      
+      {/* Desktop Navigation */}
       <div
         className={`
-          relative bg-black/70   backdrop-blur-sm border
-          px-5 py-2 rounded-full shadow-2xl shadow-black/20
-          transition-all duration-300
-           hover:shadow-cyan-500/20
-             hidden md:block
+          relative bg-slate-950/70 backdrop-blur-md border border-slate-800/80
+          px-4 py-1.5 rounded-full shadow-lg shadow-black/40
+          transition-all duration-300 hover:border-slate-700
+          hidden md:block
         `}
       >
-        <nav className="relative flex items-center gap-2">
-          {/* Navigation Links */}
-          <div className="flex items-center gap-1">
-            {navLinks.map((link) => {
-              const isActive = link.href === location.pathname;
-              return (
-                <NavLink
-                  key={link.name}
-                  to={link.href}
-                  className={`
-                      relative flex items-center justify-center gap-2 px-4 py-1  rounded-xl font-medium transition-all duration-300 
-                      text-xs tracking-wide group cursor-pointer
-                      ${
-                        isActive
-                          ? "text-white bg-gray-400/40 "
-                          : "text-slate-300 hover:text-white hover:bg-slate-700/50"
-                      }
-                    `}
-                >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>{" "}
-                  <span className="relative z-10">
-                    {icons[link.icon as keyof typeof icons]}
-                  </span>
-                  <span className="relative z-10">{link.name}</span>
-                  {/* Shine effect on hover */}
-                  <div className="absolute inset-0 rounded-full overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
-                  </div>
-                </NavLink>
-              );
-            })}
-          </div>
+        <nav className="relative flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = link.href === location.pathname;
+            return (
+              <NavLink
+                key={link.name}
+                to={link.href}
+                className={`
+                  relative flex items-center justify-center gap-2 px-4 py-1.5 rounded-full font-medium 
+                  transition-all duration-300 text-xs tracking-wide group cursor-pointer
+                  ${
+                    isActive
+                      ? "text-white bg-slate-800/80 border border-slate-700/60 shadow-sm"
+                      : "text-slate-300 hover:text-white hover:bg-slate-800/40"
+                  }
+                `}
+              >
+                {/* Active/Hover glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-cyan-500/10 to-blue-500/10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span className="relative z-10 text-sm">
+                  {icons[link.icon as keyof typeof icons]}
+                </span>
+                <span className="relative z-10">{link.name}</span>
+              </NavLink>
+            );
+          })}
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Button & Menu */}
       <div className="md:hidden">
-        <div className="flex items-center justify-between p-2.5 border rounded-full ">
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`
-               relative flex items-center h-fit justify-center p-2 rounded-lg transition-all duration-300 
-    
-              `}
-          >
-            <div
-              className={`${
-                isMobileMenuOpen
-                  ? "bg-purple-600 text-white"
-                  : "text-slate-300 hover:text-white hover:bg-slate-700/50"
-              }`}
-            >
-              <HiMenu
-                className={` absolute inset-0 ${
-                  isMobileMenuOpen
-                    ? "rotate-180 opacity-0"
-                    : "rotate-0 opacity-100"
-                }`}
-              />
-              <HiX
-                className={`absolute inset-0 ${
-                  isMobileMenuOpen
-                    ? "rotate-0 opacity-100"
-                    : "rotate-180 opacity-0"
-                }`}
-              />
-            </div>
-          </button>
-        </div>
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Navigation Menu"
+          className="relative flex items-center justify-center p-2.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-slate-800 text-slate-200 hover:text-white transition-all duration-300 shadow-md"
+        >
+          {isMobileMenuOpen ? (
+            <HiX className="text-xl text-purple-400" />
+          ) : (
+            <HiMenu className="text-xl" />
+          )}
+        </button>
 
         {/* Mobile Menu Overlay */}
         <div
           className={`
-          fixed inset-0 z-40 transition-all duration-300
-          ${
-            isMobileMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          }
-        `}
+            fixed inset-0 z-40 transition-all duration-300
+            ${
+              isMobileMenuOpen
+                ? "opacity-100 pointer-events-auto"
+                : "opacity-0 pointer-events-none"
+            }
+          `}
         >
           {/* Backdrop */}
           <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/75 backdrop-blur-md"
             onClick={() => setIsMobileMenuOpen(false)}
           ></div>
 
-          {/* Menu Content */}
+          {/* Menu Card */}
           <div
             className={`
-            absolute top-20 left-4 right-4 bg-slate-900/95 backdrop-blur-xl 
-            border border-slate-700/50 rounded-2xl p-6 shadow-2xl
-            transition-all duration-300
-            ${
-              isMobileMenuOpen
-                ? "translate-y-0 scale-100"
-                : "-translate-y-4 scale-95"
-            }
-          `}
+              absolute top-20 left-4 right-4 bg-slate-900/95 backdrop-blur-2xl 
+              border border-slate-800 rounded-2xl p-5 shadow-2xl space-y-2
+              transition-all duration-300 transform
+              ${
+                isMobileMenuOpen
+                  ? "translate-y-0 scale-100 opacity-100"
+                  : "-translate-y-4 scale-95 opacity-0"
+              }
+            `}
           >
-            <nav className="space-y-2">
-              {navLinks.map((link, index) => {
+            <nav className="flex flex-col gap-2">
+              {navLinks.map((link) => {
                 const isActive = link.href === location.pathname;
                 return (
                   <NavLink
                     key={link.name}
                     to={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
                     className={`
-                      block px-4 py-3 rounded-xl font-medium transition-all duration-300
+                      flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-sm transition-all duration-200
                       ${
                         isActive
-                          ? "text-white bg-gray-800 shadow-lg "
-                          : "text-slate-300 hover:text-white hover:bg-slate-700/50"
+                          ? "text-white bg-slate-800/90 border border-slate-700 shadow-inner"
+                          : "text-slate-300 hover:text-white hover:bg-slate-800/50"
                       }
                     `}
-                    style={{
-                      transitionDelay: `${index * 50}ms`,
-                      transform: isMobileMenuOpen
-                        ? "translateX(0)"
-                        : "translateX(-20px)",
-                      opacity: isMobileMenuOpen ? 1 : 0,
-                    }}
                   >
-                    <div className="flex items-center gap-3">
-                      {isActive && (
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      )}
-                      <span>{link.name}</span>
-                    </div>
+                    <span className="text-base text-purple-400">
+                      {icons[link.icon as keyof typeof icons]}
+                    </span>
+                    <span>{link.name}</span>
                   </NavLink>
                 );
               })}

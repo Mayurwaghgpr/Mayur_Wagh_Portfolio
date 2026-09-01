@@ -94,39 +94,45 @@ function About() {
   ];
 
   return (
-    <section id="about" className="w-full h-full relative pt-20">
-      <div className="relative z-10 space-y-10">
+    <section id="about" className="w-full relative py-12 md:py-16">
+      <div className="relative z-10 space-y-8">
         {/* Header */}
-        <Heading className="space-y-2 ">
-          <span className="text-sm font-normal opacity-50">About </span>
-          <div className="flex items-center justify-start gap-2">
-            <FaLightbulb />
-            My Story
-          </div>
-        </Heading>
+        <div className="space-y-1">
+          <span className="text-xs font-semibold tracking-wider text-cyan-400 uppercase">
+            About Me
+          </span>
+          <Heading className="flex items-center gap-2.5 text-slate-100">
+            <FaLightbulb className="text-yellow-400 text-xl" />
+            <span>My Developer Journey</span>
+          </Heading>
+        </div>
 
-        {/* Story Section */}
-        <div className=" bg-slate-800/20 backdrop-blur-sm rounded-2xl p-8 border border-slate-600/20 min-h-[500px]">
-          <div className="space-y-20 animate-fadeIn">
-            <div className=" max-w-none lg:text-base sm:text-sm text-xs">
-              {storySections.map((section, index) => (
-                <div
-                  key={index}
-                  className="flex items-center mb-6 gap-6 flex-col sm:flex-row"
-                >
-                  {section.image && (
+        {/* Story Section Card */}
+        <div className="bg-slate-900/60 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-xl space-y-12">
+          <div className="space-y-8">
+            {storySections.map((section, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-5 sm:gap-6 flex-col sm:flex-row p-4 rounded-2xl bg-slate-950/40 border border-slate-800/60 hover:border-slate-700/80 transition-colors"
+              >
+                {section.image && (
+                  <div className="w-16 h-16 shrink-0 rounded-2xl bg-slate-800/80 p-2 border border-slate-700/50 flex items-center justify-center shadow-md">
                     <img
                       src={section.image}
-                      // alt={`story-${index}`}
-                      className="w-20  object-cover"
+                      alt={`story-emoji-${index}`}
+                      className="w-full h-full object-contain"
                     />
-                  )}
-                  <p className="text-slate-300 leading-relaxed">
-                    {section.text}
-                  </p>
-                </div>
-              ))}
-            </div>
+                  </div>
+                )}
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base font-normal flex-1">
+                  {section.text}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* GitHub Activity Heatmap */}
+          <div className="pt-6 border-t border-slate-800/80">
             <GithubHeatMap />
           </div>
         </div>

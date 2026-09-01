@@ -103,51 +103,41 @@ function Projects() {
   // ]
 
   return (
-    <section className="relative  w-full  border-inherit py-10 ">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-300/20 dark:bg-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-300/20 dark:bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-      </div>
-
-      <div className="relative space-y-10 z-10 container  w-full  border-inherit  ">
+    <section className="relative w-full py-10">
+      <div className="relative space-y-8 z-10 w-full">
         {/* Header Section */}
-        <div
-          className={`text-start transition-all duration-1000 space-y-2  border-inherit `}
-        >
-          <Heading className="flex items-center justify-start gap-1 border-inherit w-fit">
-            <GrProjects className="text-sm" /> Projects
+        <div className="text-start space-y-2">
+          <Heading className="flex items-center justify-start gap-2 text-cyan-400">
+            <GrProjects className="text-xl" />
+            <span>Featured Projects</span>
           </Heading>
 
           <Discription>
-            A collection of projects delivered during internships and developed
-            personally, showcasing expertise in modern web technologies and
-            innovative solutions.
+            A curated collection of web applications, full-stack platforms, and tools built with modern architecture.
           </Discription>
         </div>
 
         {/* Projects Grid */}
-        <div
-          className={`grid sm:grid-cols-2  gap-5   justify-items-center transition-all duration-1000 delay-500 w-full border-inherit `}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full items-stretch">
           {!isLoading ? (
             projects?.map((project, index) => (
               <ProjectCard key={index} {...project} />
             ))
           ) : (
             <>
-              {" "}
               <CardSkeleton />
               <CardSkeleton />
             </>
           )}
           {!isLoading && isError && (
-            <div className=" h-[10rem] w-full flex justify-center items-center ">
-              <span className="text-red-400">Failed to fetch Projects</span>
+            <div className="col-span-full h-40 w-full flex flex-col justify-center items-center rounded-2xl bg-red-950/20 border border-red-900/40 p-6 text-center space-y-2">
+              <span className="text-red-400 font-semibold text-base">Failed to load projects</span>
+              <span className="text-slate-400 text-xs">Could not reach the server API. Check server connection.</span>
             </div>
           )}
         </div>
       </div>
+      <div className="absolute bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent w-full"></div>
     </section>
   );
 }
