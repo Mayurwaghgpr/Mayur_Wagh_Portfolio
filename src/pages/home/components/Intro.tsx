@@ -45,10 +45,15 @@ function Intro() {
   const bio =
     profile?.summary ||
     "Passionate about engineering digital solutions with strong expertise in the MERN stack, GraphQL, PostgreSQL, and scalable web applications. I focus on writing clean, robust code and building impactful products that solve real-world problems.";
-  const resumeUrl =
+  const rawResumeUrl =
     profile?.resumeFileUrl ||
     profile?.resumes?.[0]?.resumeUrl ||
     "https://drive.google.com/file/d/1qFCRRd40MiC1-ej4xK_vGzcClNdkCtep/view?usp=drive_link";
+
+  const backendOrigin = (import.meta.env.VITE_BASE_URL || "http://localhost:5500").replace(/\/api\/?$/, "");
+  const resumeUrl = rawResumeUrl.startsWith("/api")
+    ? `${backendOrigin}${rawResumeUrl}`
+    : rawResumeUrl;
 
   const socialLinks: SocialLink[] = [
     {
