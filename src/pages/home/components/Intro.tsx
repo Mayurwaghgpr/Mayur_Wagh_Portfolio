@@ -1,32 +1,20 @@
 import { FaGithub } from "react-icons/fa";
 import { GrLinkedinOption } from "react-icons/gr";
 import { FaXTwitter } from "react-icons/fa6";
-import { useState, useEffect } from "react";
+import { FiMail, FiArrowDownRight } from "react-icons/fi";
+import { TbFileCv } from "react-icons/tb";
 import { useQuery } from "@tanstack/react-query";
 import profileImageFallback from "/profileimage.png";
-import Discription from "../../../components/Discription";
-import { FiMail } from "react-icons/fi";
-import { TbFileCv } from "react-icons/tb";
 import axiosInstance from "../../../utils/axiosInstance";
-
-type SocialLink = {
-  href: string;
-  label: string;
-  icon: React.ReactNode;
-  position: string;
-  hoverColor: string;
-  tooltipPosition: string;
-};
+import type { CandidateProfile } from "../../../types";
 
 function Intro() {
-  const [mounted, setMounted] = useState(false);
-
-  const { data: profile } = useQuery<any>({
+  const { data: profile } = useQuery<CandidateProfile | null>({
     queryKey: ["candidateProfile"],
     queryFn: async () => {
       try {
-        const res = await axiosInstance.get<{ data: any }>("/candidate-profile/get");
-        return res?.data?.data;
+        const res = await axiosInstance.get<{ data: CandidateProfile }>("/candidate-profile/get");
+        return res?.data?.data || null;
       } catch {
         return null;
       }
@@ -34,17 +22,15 @@ function Intro() {
     staleTime: 1000 * 60 * 5,
   });
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const fullName = profile?.fullName || "Mayur Wagh";
   const firstName = fullName.split(" ")[0] || "Mayur";
-  const role = profile?.currentRole || "Full Stack Developer";
   const avatar = profile?.avatarUrl || profileImageFallback;
+  const role = "Full Stack Developer";
+  const tagline = "Full Stack Developer";
+
   const bio =
-    profile?.summary ||
-    "Passionate about engineering digital solutions with strong expertise in the MERN stack, GraphQL, PostgreSQL, and scalable web applications. I focus on writing clean, robust code and building impactful products that solve real-world problems.";
+    "I build software that is fast, resilient, and built to scale. From robust backend architectures to intuitive digital experiences, I focus on solving complex problems and turning ambitious ideas into reliable, high performance products.";
+
   const rawResumeUrl =
     profile?.resumeFileUrl ||
     profile?.resumes?.[0]?.resumeUrl ||
@@ -55,169 +41,132 @@ function Intro() {
     ? `${backendOrigin}${rawResumeUrl}`
     : rawResumeUrl;
 
-  const socialLinks: SocialLink[] = [
-    {
-      href: profile?.socialLinks?.github || "https://github.com/mayurwaghgpr",
-      label: "GitHub",
-      icon: <FaGithub />,
-      position: "absolute -top-4 -left-4",
-      hoverColor: "hover:bg-slate-700",
-      tooltipPosition: "absolute -top-12 left-1/2 -translate-x-1/2",
-    },
-    {
-      href: profile?.socialLinks?.linkedin || "https://linkedin.com/in/mayur-wagh-751b8a24b/",
-      label: "LinkedIn",
-      icon: <GrLinkedinOption />,
-      position: "absolute top-1/2 -left-12 -translate-y-1/2",
-      hoverColor: "hover:bg-blue-600",
-      tooltipPosition: "absolute top-1/2 -left-20 -translate-y-1/2",
-    },
-    {
-      href: profile?.socialLinks?.twitter || "https://twitter.com/mayurwagh152064",
-      label: "Twitter",
-      icon: <FaXTwitter />,
-      position: "absolute -bottom-4 -left-4",
-      hoverColor: "hover:bg-blue-400",
-      tooltipPosition: "absolute -bottom-12 left-1/2 -translate-x-1/2",
-    },
-    {
-      href: profile?.email ? `mailto:${profile.email}` : "mailto:mayur2002wagh@gmail.com",
-      label: "Email",
-      icon: <FiMail />,
-      position: "absolute -bottom-12 left-14",
-      hoverColor: "hover:bg-purple-600",
-      tooltipPosition: "absolute top-1/2 left-10 -translate-y-1/2",
-    },
-  ];
+  const githubUrl = profile?.socialLinks?.github || "https://github.com/mayurwaghgpr";
+  const linkedinUrl = profile?.socialLinks?.linkedin || "https://linkedin.com/in/mayur-wagh-751b8a24b/";
+  const twitterUrl = profile?.socialLinks?.twitter || "https://twitter.com/mayurwagh152064";
+  const emailUrl = profile?.email ? `mailto:${profile.email}` : "mailto:mayur2002wagh@gmail.com";
 
   return (
-    <section id="intro" className="relative w-full py-12 md:py-16">
-      <div className="relative z-10 flex justify-center items-center h-full w-full">
-        <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-between gap-10 lg:gap-14">
+    <section id="intro" className="relative w-full pt-8 pb-14 md:py-16 border-b border-zinc-200 dark:border-zinc-800 scroll-mt-20">
+      <div className="flex flex-col lg:flex-row items-start justify-between gap-10 lg:gap-14">
 
-          {/* Profile image section */}
-          <div className="flex justify-center items-center relative w-fit shrink-0 my-6 md:my-0">
-            {/* Sonar Radar Ping Wave */}
-            <div className="absolute inset-0 rounded-full bg-cyan-500/20 animate-ping opacity-30 pointer-events-none" style={{ animationDuration: '3.5s' }} />
+        {/* Left Column: Narrative & Identity */}
+        <div className="flex-1 space-y-6">
 
-            {/* Sci-Fi Rotating Dashed HUD Ring */}
-            <div className="absolute -inset-4 rounded-full border-2 border-dashed border-cyan-500/40 animate-[spin_20s_linear_infinite] pointer-events-none" />
-            <div className="absolute -inset-8 rounded-full border border-dotted border-purple-500/30 animate-[spin_35s_linear_infinite_reverse] pointer-events-none" />
+          {/* Availability Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-xs text-zinc-600 dark:text-zinc-400 transition-colors">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="font-medium text-zinc-800 dark:text-zinc-200">Available for New Roles & Projects</span>
+          </div>
 
-            {/* Ambient decorative glowing rings */}
-            <div className="absolute inset-0 transition-all duration-1000 ease-out scale-110 pointer-events-none">
-              <div className="absolute inset-0 border-2 border-cyan-500/60 rounded-full"></div>
-              <div className="absolute inset-2 border-2 border-blue-500/50 rounded-full"></div>
-              <div className="absolute inset-4 border border-sky-500/40 rounded-full"></div>
-            </div>
+          {/* Main Headline */}
+          <div className="space-y-3">
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-[1.18] transition-colors">
+              Hey, I'm {firstName}
+            </h1>
 
-            {/* Profile Image Avatar */}
-            <div
-              className={`
-                relative transition-all duration-700 ease-out transform
-                w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40
-                z-10 rounded-full overflow-hidden cursor-pointer group
-                shadow-2xl shadow-purple-500/30 hover:shadow-cyan-400/50
-                ring-4 ring-purple-500/40 hover:ring-cyan-400/80
-              `}
-              style={{ transitionDelay: mounted ? "300ms" : "0ms" }}
+            <p className="font-mono text-xs sm:text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400 transition-colors">
+              {tagline}
+            </p>
+
+            <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl font-normal transition-colors">
+              {bio}
+            </p>
+          </div>
+
+          {/* Primary Action Calls */}
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 font-medium text-sm transition-all duration-200 shadow-sm active:scale-95 group"
             >
-              {/* Animated sweep shine on hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 via-transparent to-cyan-500/30 group-hover:from-purple-500/40 group-hover:to-cyan-400/40 transition-all duration-500 rounded-full z-10"></div>
-              <div className="absolute inset-0 bg-black opacity-20 group-hover:opacity-40 transition-opacity duration-300 rounded-full z-20"></div>
+              <span>See My Work</span>
+              <FiArrowDownRight className="text-base group-hover:translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />
+            </a>
 
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-white hover:bg-zinc-50 dark:bg-zinc-900 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 text-zinc-800 dark:text-zinc-200 font-medium text-sm transition-all duration-200 shadow-sm active:scale-95 group"
+            >
+              <TbFileCv className="text-base text-zinc-500 dark:text-zinc-400 group-hover:scale-110 transition-transform" />
+              <span>Download CV</span>
+            </a>
+
+            <a
+              href={emailUrl}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 text-sm font-medium transition-colors"
+            >
+              <FiMail className="text-base" />
+              <span>mayur2002wagh@gmail.com</span>
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Circular Avatar & Social Links */}
+        <div className="w-full lg:w-auto shrink-0 flex flex-col items-center">
+          <div className="flex flex-col items-center group">
+            {/* Circular Profile Avatar without enclosing card frame */}
+            <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden ring-1 ring-zinc-200 dark:ring-zinc-800 group-hover:ring-zinc-400 dark:group-hover:ring-zinc-600 transition-all duration-300 shadow-md bg-zinc-100 dark:bg-zinc-900">
               <img
-                className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700 ease-out"
                 src={avatar}
                 alt={fullName}
+                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            {/* Social Icons Container with Entrance Rotation & Scale Transition */}
-            <div
-              className={`
-                absolute inset-0 transition-all duration-700 ease-out z-20
-                ${mounted ? "scale-100 opacity-100 rotate-0" : "scale-0 opacity-0 -z-10 -rotate-45"}
-              `}
-            >
-              <div className="relative w-full h-full text-sm">
-                {socialLinks.map((link, i) => (
-                  <a
-                    key={i}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    aria-label={link.label}
-                    className={`${link.position} group p-2.5 bg-slate-900/90 backdrop-blur-md 
-                    text-slate-200 ${link.hoverColor} hover:text-white 
-                    transition-all duration-300 transform hover:scale-110 hover:-translate-y-0.5
-                    rounded-full shadow-lg shadow-black/50 border border-slate-700/80 hover:shadow-cyan-500/20`}
-                  >
-                    <span className="text-base">{link.icon}</span>
-                    {/* Tooltip */}
-                    <div
-                      className={`${link.tooltipPosition} bg-slate-800 text-slate-100 px-2.5 py-1 
-                      rounded-lg text-xs opacity-0 group-hover:opacity-100 
-                      transition-opacity duration-300 whitespace-nowrap shadow-xl border border-slate-700 pointer-events-none z-30`}
-                    >
-                      {link.label}
-                    </div>
-                  </a>
-                ))}
-              </div>
+            {/* Direct Title below without 'Role:' label */}
+            <div className="mt-3.5 text-center">
+              <span className="font-display font-medium text-sm sm:text-base text-zinc-700 dark:text-zinc-300 tracking-tight transition-colors">
+                {role}
+              </span>
             </div>
           </div>
 
-          {/* Text Content */}
-          <article
-            className={`
-              flex-1 w-full space-y-6 text-center md:text-left
-              transition-all duration-1000 ease-out transform
-              ${mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-            `}
-          >
-            <div className="space-y-4">
-              {/* Live Status Pill Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900/90 border border-emerald-500/40 text-emerald-400 text-xs font-semibold shadow-md shadow-emerald-950/40 backdrop-blur-md">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>Available for New Roles & Projects</span>
-              </div>
-
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-100 leading-tight">
-                Hey, I'm {firstName},{" "}
-                <span className="block sm:inline text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-purple-400">
-                  {role}
-                </span>
-              </h1>
-              <Discription className="mx-auto md:mx-0">
-                {bio}
-              </Discription>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-800/80">
-              <span className="text-xs sm:text-sm text-slate-400 font-medium">
-                Trying to make something different in shadows 🥷🏻
-              </span>
-
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-100 bg-slate-900/90 hover:bg-slate-800 border border-slate-700/80 hover:border-cyan-400/60 shadow-md hover:shadow-cyan-500/20 transition-all duration-300 group overflow-hidden cursor-pointer"
-              >
-                {/* Shine Sweep Effect on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
-                <TbFileCv className="text-base text-cyan-400 group-hover:scale-110 transition-transform" />
-                <span>Download CV</span>
-              </a>
-            </div>
-          </article>
+          {/* Social Row with smooth micro-interactions */}
+          <div className="flex items-center gap-2 mt-4">
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub Profile"
+              className="p-2.5 rounded-lg bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 active:scale-95 hover:-translate-y-0.5"
+            >
+              <FaGithub className="text-lg" />
+            </a>
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn Profile"
+              className="p-2.5 rounded-lg bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 active:scale-95 hover:-translate-y-0.5"
+            >
+              <GrLinkedinOption className="text-lg" />
+            </a>
+            <a
+              href={twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter Profile"
+              className="p-2.5 rounded-lg bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 active:scale-95 hover:-translate-y-0.5"
+            >
+              <FaXTwitter className="text-lg" />
+            </a>
+            <a
+              href={emailUrl}
+              aria-label="Send Email"
+              className="p-2.5 rounded-lg bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-all duration-200 active:scale-95 hover:-translate-y-0.5"
+            >
+              <FiMail className="text-lg" />
+            </a>
+          </div>
         </div>
+
       </div>
-      <div className="absolute bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent w-full"></div>
     </section>
   );
 }
