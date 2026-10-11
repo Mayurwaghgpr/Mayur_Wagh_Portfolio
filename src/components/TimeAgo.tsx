@@ -1,19 +1,21 @@
 import { format, isToday, isYesterday } from "date-fns";
 
-const TimeAgo = ({
-  date,
-  className,
-  grouped = false,
-}: {
-  date: Date;
+interface TimeAgoProps {
+  date: string | number | Date;
   className?: string;
   grouped?: boolean;
-}) => {
-  console.log(date);
-  //Formatter forn individual dates
-  const getTimeAgo = (date: Date) => {
-    const now: any = new Date();
-    const past: any = new Date(date);
+}
+
+const TimeAgo = ({ date, className = "", grouped = false }: TimeAgoProps) => {
+  const parsedDate = new Date(date);
+
+  if (isNaN(parsedDate.getTime())) {
+    return <span className={`text-zinc-500 dark:text-zinc-400 ${className}`}>Recently</span>;
+  }
+
+  const getTimeAgo = (d: Date) => {
+    const now = new Date().getTime();
+    const past = d.getTime();
     const diff = now - past;
 
     const second = 1000;
@@ -23,31 +25,31 @@ const TimeAgo = ({
     const week = 7 * day;
     const month = 30 * day;
     const year = 365 * day;
-    const format = (value: number, unit: string) =>
+
+    const formatUnit = (value: number, unit: string) =>
       `${value} ${unit}${value > 1 ? "s" : ""} ago`;
-    if (diff < minute) return format(Math.floor(diff / second), "second");
-    if (diff < hour) return format(Math.floor(diff / minute), "minute");
-    if (diff < day) return format(Math.floor(diff / hour), "hour");
-    if (diff < week) return format(Math.floor(diff / day), "day");
-    if (diff < month) return format(Math.floor(diff / week), "week");
-    if (diff < year) return format(Math.floor(diff / month), "month");
-    return format(Math.floor(diff / year), "year");
+
+    if (diff < minute) return formatUnit(Math.max(1, Math.floor(diff / second)), "sec");
+    if (diff < hour) return formatUnit(Math.floor(diff / minute), "min");
+    if (diff < day) return formatUnit(Math.floor(diff / hour), "hour");
+    if (diff < week) return formatUnit(Math.floor(diff / day), "day");
+    if (diff < month) return formatUnit(Math.floor(diff / week), "week");
+    if (diff < year) return formatUnit(Math.floor(diff / month), "month");
+    return formatUnit(Math.floor(diff / year), "year");
   };
-  //Formatter for grouped dates
-  const formatDateLabel = (dateString: Date) => {
-    const date = new Date(dateString);
 
-    if (isToday(date)) return "Today";
-    if (isYesterday(date)) return "Yesterday";
-
-    return format(date, "dd MMM yyyy"); // Example: 02 Oct 2025
+  const formatDateLabel = (d: Date) => {
+    if (isToday(d)) return "Today";
+    if (isYesterday(d)) return "Yesterday";
+    return format(d, "dd MMM yyyy");
   };
 
   return (
-    <span className={`${className} opacity-20`}>
-      {grouped ? formatDateLabel(date) : getTimeAgo(date)}
+    <span className={`text-zinc-500 dark:text-zinc-400 font-mono text-xs ${className}`}>
+      {grouped ? formatDateLabel(parsedDate) : getTimeAgo(parsedDate)}
     </span>
   );
 };
 
 export default TimeAgo;
+

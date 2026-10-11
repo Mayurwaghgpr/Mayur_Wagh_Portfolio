@@ -8,10 +8,11 @@ export default function Discription({
   className?: string;
 }) {
   return (
-    <div
-      className={`text-slate-300 font-normal leading-relaxed text-sm sm:text-base max-w-3xl ${className}`}
+    <p
+      className={`text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed text-sm sm:text-base max-w-2xl ${className}`}
     >
       {children}
-    </div>
+    </p>
   );
 }
+

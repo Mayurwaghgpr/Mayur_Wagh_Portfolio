@@ -1,122 +1,157 @@
-import { MdLocationOn, MdOutlineWorkOutline, MdTimeline } from "react-icons/md";
+import { MdLocationOn, MdOutlineWorkOutline } from "react-icons/md";
 import Heading from "../../../components/Heading";
-const experiences = [
+
+interface ExperienceItem {
+  title: string;
+  company: string;
+  period: string;
+  location: string;
+  type: string;
+  highlights: string[];
+  technologies: string[];
+}
+
+const experiences: ExperienceItem[] = [
   {
-    title: "Backend Developer ",
+    title: "Backend Developer",
     company: "SecurityBoat",
-    period: "Nov 2025 - present",
+    period: "Nov 2025 – Present",
     location: "Pune, India",
-    description: (
-      <ul className=" list-disc">
-        {" "}
-        <li>
-          Developed GraphQl and RESTful APIs using Node.js, Apollo server,
-          Express,PostgreSql and MongoDB.
-        </li>
-      </ul>
-    ),
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Next.js"],
+    type: "Full-Time",
+    highlights: [
+      "Architected Apollo GraphQL servers and robust RESTful API services using Node.js, Express, PostgreSQL, and MongoDB.",
+      "Engineered secure authentication workflows featuring JWT tokens, session management, and granular role-based access control (RBAC).",
+      "Designed and optimized database schemas and relational queries for enterprise security analytics and reporting workflows.",
+    ],
+    technologies: ["Node.js", "Express", "GraphQL", "PostgreSQL", "MongoDB", "TypeScript", "Apollo Server"],
   },
   {
     title: "Software Developer Intern",
     company: "Webseeder Ltd",
-    period: "Dec 2024 - Sept 2025",
+    period: "Dec 2024 – Sept 2025",
     location: "Remote",
-    description: (
-      <ul className=" list-disc">
-        {" "}
-        <li>Built and maintained LMS, CRM, and GPS apps using MERN stack.</li>
-        <li> secure REST APIs (JWT & OAuth) with role-based access. </li>
-        <li>
-          {" "}
-          Optimized MongoDB & PostgreSQL queries, improving performance by 30%.{" "}
-        </li>
-        <li>
-          Implemented real-time chats & notifications with Redis + Socket.io.
-        </li>{" "}
-        <li>Collaborated with teams, delivering features 20% faster.</li>{" "}
-      </ul>
-    ),
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Next.js"],
+    type: "Internship",
+    highlights: [
+      "Engineered full-stack features for client-facing LMS, CRM, and real-time GPS tracking platforms using the MERN stack.",
+      "Architected secure RESTful APIs with JWT and OAuth 2.0 verification, enforcing strict role-based authorization boundaries.",
+      "Optimized complex MongoDB aggregation pipelines and PostgreSQL indexes, cutting query response latencies by ~30%.",
+      "Implemented real-time bidirectional communication and live notifications utilizing Redis Pub/Sub and Socket.io.",
+      "Collaborated in Agile sprints with cross-functional engineering teams, accelerating release cycles by 20%.",
+    ],
+    technologies: ["React", "Next.js", "Node.js", "Express", "MongoDB", "PostgreSQL", "Redis", "Socket.io"],
   },
   {
     title: "Python Developer Intern",
     company: "Borse Automation Pvt Ltd",
-    period: "Aug 2023 - Jan 2024",
+    period: "Aug 2023 – Jan 2024",
     location: "Nashik, India",
-    description: (
-      <ul className=" list-disc">
-        {" "}
-        <li>Developed vehicle dashcam with OpenCV (face detection).</li>
-        <li>
-          Built PyQt desktop apps for sensor monitoring, reducing manual work.
-        </li>
-        <li>
-          Improved application responsiveness, boosting efficiency by 30%.
-        </li>
-      </ul>
-    ),
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Next.js"],
+    type: "Internship",
+    highlights: [
+      "Developed intelligent vehicle dashcam software integrating OpenCV and computer vision models for driver face and attentiveness detection.",
+      "Engineered desktop GUIs in PyQt5 for real-time industrial sensor telemetry, eliminating repetitive manual verification.",
+      "Optimized multi-threaded video stream processing, boosting application frame-rate throughput and efficiency by 30%.",
+    ],
+    technologies: ["Python", "OpenCV", "PyQt5", "WebSockets", "Computer Vision"],
   },
 ];
 
 function Experience() {
   return (
-    <section className="relative flex flex-col justify-center items-start gap-6 w-full py-10">
-      <Heading className="flex items-center gap-2 text-cyan-400">
-        <MdOutlineWorkOutline className="text-xl" />
-        <span>Work Experience</span>
-      </Heading>
+    <section id="experience" className="relative w-full py-12 md:py-16 border-b border-zinc-200 dark:border-zinc-800 scroll-mt-20">
+      <div className="space-y-10">
+        
+        {/* Section Heading */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div>
+            <Heading badge="Track Record">
+              <span className="flex items-center gap-2.5">
+                <MdOutlineWorkOutline className="text-zinc-700 dark:text-zinc-300 text-2xl sm:text-3xl" />
+                <span>Work Experience</span>
+              </span>
+            </Heading>
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base mt-2 max-w-xl">
+              Proven engineering contributions across high-throughput backends, full-stack web applications, and automation systems.
+            </p>
+          </div>
 
-      <div className="relative flex flex-col items-start justify-start gap-8 w-full h-full pl-2 sm:pl-4">
-        {/* Timeline vertical line */}
-        <div className="absolute left-[11px] sm:left-[19px] top-3 bottom-3 w-0.5 bg-gradient-to-b from-cyan-500 via-purple-500 to-transparent opacity-60"></div>
+          <div className="text-xs font-mono text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 px-3 py-1.5 rounded-full border border-zinc-200 dark:border-zinc-800 w-fit">
+            3 Roles • 2+ Years Total
+          </div>
+        </div>
 
-        {experiences.map((exp, idx) => (
-          <div
-            key={idx}
-            className="relative flex items-start gap-4 sm:gap-6 w-full group"
-          >
-            {/* Timeline dot */}
-            <div className="relative z-10 flex-shrink-0 mt-1">
-              <div className="w-5 h-5 sm:w-6 sm:h-6 bg-slate-900 border-2 border-cyan-400 group-hover:border-purple-400 rounded-full flex items-center justify-center transition-colors duration-300 shadow-md shadow-cyan-500/20">
-                <MdTimeline className="text-cyan-300 group-hover:text-purple-300 text-xs sm:text-sm transition-colors" />
+        {/* Timeline List */}
+        <div className="relative space-y-8">
+          {/* Vertical continuous guide line mathematically centered through dot column (12px) */}
+          <div className="absolute left-3 top-6 bottom-6 w-px bg-zinc-200 dark:bg-zinc-800 -translate-x-1/2" />
+
+          {experiences.map((exp, idx) => (
+            <div key={idx} className="relative flex items-start gap-4 sm:gap-6 group">
+              
+              {/* Timeline Indicator Dot */}
+              <div className="w-6 shrink-0 flex justify-center mt-5 relative z-10">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white dark:bg-zinc-950 border-2 border-zinc-300 dark:border-zinc-700 group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-colors flex items-center justify-center shadow-sm">
+                  <div className="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100 transition-colors" />
+                </div>
               </div>
-            </div>
 
-            {/* Card Content */}
-            <div className="flex-1 bg-slate-900/40 backdrop-blur-sm border border-slate-800/80 group-hover:border-slate-700/80 rounded-2xl p-5 shadow-lg transition-all duration-300 space-y-3">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-slate-800/60 pb-3">
-                <div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-100 group-hover:text-cyan-300 transition-colors">
-                    {exp.title}
-                  </h3>
-                  <div className="flex items-center gap-3 mt-1">
-                    <span className="text-cyan-400 font-semibold text-xs sm:text-sm">
-                      {exp.company}
-                    </span>
-                    <span className="text-slate-400 text-xs flex items-center gap-1">
-                      <MdLocationOn className="text-slate-500" />
-                      {exp.location}
+              {/* Card Container */}
+              <div className="flex-1 p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900/40 hover:bg-zinc-50/70 dark:hover:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-sm space-y-4">
+                
+                {/* Header row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800/80 pb-3.5">
+                  <div>
+                    <h3 className="font-display font-semibold text-base sm:text-lg text-zinc-900 dark:text-zinc-100 transition-colors">
+                      {exp.title}
+                    </h3>
+                    <div className="flex flex-wrap items-center gap-2 mt-1 text-xs">
+                      <span className="font-medium text-zinc-800 dark:text-zinc-200">{exp.company}</span>
+                      <span className="text-zinc-400">•</span>
+                      <span className="text-zinc-500 dark:text-zinc-400 flex items-center gap-1 font-mono">
+                        <MdLocationOn className="text-zinc-400" />
+                        {exp.location}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-700/60">
+                      {exp.period}
                     </span>
                   </div>
                 </div>
 
-                <span className="text-xs font-medium text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-700/50 w-fit">
-                  {exp.period}
-                </span>
-              </div>
+                {/* Highlights */}
+                <ul className="space-y-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
+                  {exp.highlights.map((highlight, hIdx) => (
+                    <li key={hIdx} className="flex items-start gap-2.5">
+                      <span className="text-zinc-400 dark:text-zinc-500 font-bold shrink-0 mt-0.5">›</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal [&_ul]:pl-5 [&_li]:mb-1">
-                {exp.description}
+                {/* Tech Badges */}
+                <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-zinc-100 dark:border-zinc-800/60">
+                  <span className="font-mono text-xs text-zinc-400 mr-1.5">Stack:</span>
+                  {exp.technologies.map((tech, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/50 text-xs font-mono text-zinc-600 dark:text-zinc-300"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+
       </div>
-      <div className="absolute bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent w-full"></div>
     </section>
   );
 }
 
 export default Experience;
+

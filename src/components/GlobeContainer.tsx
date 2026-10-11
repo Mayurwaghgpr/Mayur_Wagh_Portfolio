@@ -4,10 +4,15 @@ interface GlobeContainerProps {
   handleGlobeClick: (point: { lat: number; lng: number } | null) =>void;
 }
 
+interface PostcardPoint {
+  lat: number;
+  lng: number;
+  title: string;
+  message: string;
+}
+
 const GlobeContainer: React.FC<GlobeContainerProps> = ({ handleGlobeClick }) => {
-  const [postcards] = useState<
-    { lat: number; lng: number; title: string; message: string }[]
-  >([
+  const [postcards] = useState<PostcardPoint[]>([
     {
       lat: 37.7749,
       lng: -122.4194,
@@ -34,16 +39,17 @@ const GlobeContainer: React.FC<GlobeContainerProps> = ({ handleGlobeClick }) => 
       <Globe
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg"
         pointsData={postcards}
-        pointLat={(d: any) => d.lat}
+        pointLat={(d: object) => (d as PostcardPoint).lat}
         backgroundColor="rgba(0,0,0,0)"
-        pointLng={(d: any) => d.lng}
-        pointLabel={(d: any) => `${d.title}: ${d.message}`}
+        pointLng={(d: object) => (d as PostcardPoint).lng}
+        pointLabel={(d: object) => `${(d as PostcardPoint).title}: ${(d as PostcardPoint).message}`}
         pointColor={() => "orange"}
         pointRadius={0.6}
-            onGlobeClick={handleGlobeClick}
+        onGlobeClick={handleGlobeClick}
       />
     </div>
   );
 };
+
 
 export default GlobeContainer;
