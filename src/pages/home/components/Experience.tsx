@@ -65,7 +65,7 @@ function Experience() {
           <div>
             <Heading badge="Track Record">
               <span className="flex items-center gap-2.5">
-                <MdOutlineWorkOutline className="text-zinc-700 dark:text-zinc-300 text-2xl sm:text-3xl" />
+                <MdOutlineWorkOutline className="text-zinc-700 dark:text-zinc-300 text-xl sm:text-2xl" />
                 <span>Work Experience</span>
               </span>
             </Heading>
@@ -88,22 +88,22 @@ function Experience() {
             <div key={idx} className="relative flex items-start gap-4 sm:gap-6 group">
               
               {/* Timeline Indicator Dot */}
-              <div className="w-6 shrink-0 flex justify-center mt-5 relative z-10">
-                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white dark:bg-zinc-950 border-2 border-zinc-300 dark:border-zinc-700 group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-colors flex items-center justify-center shadow-sm">
+              <div className="w-6 shrink-0 flex justify-center mt-1 relative z-10">
+                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-white dark:bg-zinc-950 border-2 border-zinc-300 dark:border-zinc-700 group-hover:border-zinc-900 dark:group-hover:border-zinc-100 transition-colors flex items-center justify-center shadow-xs">
                   <div className="w-2 h-2 rounded-full bg-zinc-400 group-hover:bg-zinc-900 dark:group-hover:bg-zinc-100 transition-colors" />
                 </div>
               </div>
 
-              {/* Card Container */}
-              <div className="flex-1 p-5 sm:p-6 rounded-2xl bg-white dark:bg-zinc-900/40 hover:bg-zinc-50/70 dark:hover:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-sm space-y-4">
+              {/* Content Container - Blended with background without card box */}
+              <div className="flex-1 space-y-3.5 pb-8 last:pb-0">
                 
                 {/* Header row */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-200 dark:border-zinc-800/80 pb-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 border-b border-zinc-200/60 dark:border-zinc-800/60 pb-3">
                   <div>
                     <h3 className="font-display font-semibold text-base sm:text-lg text-zinc-900 dark:text-zinc-100 transition-colors">
                       {exp.title}
                     </h3>
-                    <div className="flex flex-wrap items-center gap-2 mt-1 text-xs">
+                    <div className="flex flex-wrap items-center gap-2 mt-0.5 text-xs">
                       <span className="font-medium text-zinc-800 dark:text-zinc-200">{exp.company}</span>
                       <span className="text-zinc-400">•</span>
                       <span className="text-zinc-500 dark:text-zinc-400 flex items-center gap-1 font-mono">
@@ -113,11 +113,9 @@ function Experience() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-xs text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/80 px-2.5 py-1 rounded-full border border-zinc-200 dark:border-zinc-700/60">
-                      {exp.period}
-                    </span>
-                  </div>
+                  <span className="font-mono text-xs text-zinc-500 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-900 px-2.5 py-0.5 rounded-full border border-zinc-200/70 dark:border-zinc-800/70 w-fit">
+                    {exp.period}
+                  </span>
                 </div>
 
                 {/* Highlights */}
@@ -131,12 +129,12 @@ function Experience() {
                 </ul>
 
                 {/* Tech Badges */}
-                <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-zinc-100 dark:border-zinc-800/60">
-                  <span className="font-mono text-xs text-zinc-400 mr-1.5">Stack:</span>
+                <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                  <span className="font-mono text-xs text-zinc-400 mr-1">Stack:</span>
                   {exp.technologies.map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/50 text-xs font-mono text-zinc-600 dark:text-zinc-300"
+                      className="px-2.5 py-0.5 rounded-full bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/50 dark:border-zinc-800/50 text-xs font-mono text-zinc-600 dark:text-zinc-400"
                     >
                       {tech}
                     </span>

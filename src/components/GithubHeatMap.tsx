@@ -108,7 +108,7 @@ function GithubHeatMap() {
         )}
       </div>
 
-      <div className="p-4 sm:p-5 rounded-2xl bg-white dark:bg-zinc-950/70 border border-zinc-200 dark:border-zinc-800/80 shadow-sm overflow-x-auto">
+      <div className="overflow-x-auto py-2">
         <div className="min-w-[680px] flex justify-center py-2">
           <GitHubCalendar
             colorScheme={theme === "dark" ? "dark" : "light"}
