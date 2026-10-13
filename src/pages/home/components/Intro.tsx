@@ -26,7 +26,6 @@ function Intro() {
   const firstName = fullName.split(" ")[0] || "Mayur";
   const avatar = profile?.avatarUrl || profileImageFallback;
   const role = "Full Stack Developer";
-  const tagline = "Full Stack Developer";
 
   const bio =
     "I build software that is fast, resilient, and built to scale. From robust backend architectures to intuitive digital experiences, I focus on solving complex problems and turning ambitious ideas into reliable, high performance products.";
@@ -68,9 +67,6 @@ function Intro() {
               Hey, I'm {firstName}
             </h1>
 
-            <p className="font-mono text-xs sm:text-sm uppercase tracking-wider text-zinc-500 dark:text-zinc-400 transition-colors">
-              {tagline}
-            </p>
 
             <p className="text-zinc-600 dark:text-zinc-400 text-base sm:text-lg leading-relaxed max-w-2xl font-normal transition-colors">
               {bio}

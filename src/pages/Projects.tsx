@@ -170,11 +170,11 @@ function Projects() {
       <div className="space-y-10">
         
         {/* Section Heading & Filter Tabs */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <Heading badge="Portfolio Showcase">
               <span className="flex items-center gap-2.5">
-                <GrProjects className="text-zinc-700 dark:text-zinc-300 text-2xl sm:text-3xl" />
+                <GrProjects className="text-zinc-700 dark:text-zinc-300 text-xl sm:text-2xl" />
                 <span>Featured Engineering Projects</span>
               </span>
             </Heading>
@@ -183,21 +183,24 @@ function Projects() {
             </p>
           </div>
 
-          {/* Filter Pills */}
-          <div className="flex items-center gap-1.5 p-1 bg-zinc-100 dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800 w-fit">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all duration-200 active:scale-95 ${
-                  selectedCategory === cat
-                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-sm"
-                    : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-200/60 dark:hover:bg-zinc-800/50"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+          {/* Clean Minimalist Category Filters (No horizontal scroll, wraps naturally) */}
+          <div className="flex flex-wrap items-center gap-1 sm:gap-1.5 py-0.5">
+            {categories.map((cat) => {
+              const isActive = selectedCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3 py-1.5 rounded-full text-xs transition-all duration-200 font-medium ${
+                    isActive
+                      ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900 shadow-xs"
+                      : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
         </div>
 

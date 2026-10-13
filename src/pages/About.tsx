@@ -7,6 +7,7 @@ export default function About() {
     {
       step: "01",
       title: "Curiosity & First Steps",
+      image: "/emoji1.png",
       text: (
         <>
           Hey there! I'm <span className="text-zinc-900 dark:text-zinc-100 font-semibold">Mayur Wagh</span>, a
@@ -25,6 +26,7 @@ export default function About() {
     {
       step: "02",
       title: "Computer Vision & JavaScript Exploration",
+      image: "/emoji2.png",
       text: (
         <>
           I worked on projects using Python libraries like{" "}
@@ -42,6 +44,7 @@ export default function About() {
     {
       step: "03",
       title: "Transition to Full-Stack & 'Spread'",
+      image: "/emoji3.png",
       text: (
         <>
           After completing my internship and Master’s degree, I fully dedicated myself to
@@ -57,6 +60,7 @@ export default function About() {
     {
       step: "04",
       title: "Production Startup Systems",
+      image: "/emoji4.png",
       text: (
         <>
           After several months of learning and building, I landed a remote{" "}
@@ -71,6 +75,7 @@ export default function About() {
     {
       step: "05",
       title: "Systems, Caching & Real-Time Engineering",
+      image: "/emoji5.png",
       text: (
         <>
           Throughout my journey, I’ve developed systems involving notifications, messaging, post
@@ -84,6 +89,7 @@ export default function About() {
     {
       step: "06",
       title: "Looking Forward",
+      image: "/emoji6.png",
       text: (
         <>
           I’ve come a long way from just “writing code to pass exams” — now, I’m constantly
@@ -101,7 +107,7 @@ export default function About() {
       <div className="space-y-3 max-w-2xl">
         <Heading badge="About Me">
           <span className="flex items-center gap-2.5">
-            <FaLightbulb className="text-zinc-700 dark:text-zinc-300 text-2xl sm:text-3xl" />
+            <FaLightbulb className="text-zinc-700 dark:text-zinc-300 text-xl sm:text-2xl" />
             <span>My Developer Journey</span>
           </span>
         </Heading>
@@ -110,37 +116,48 @@ export default function About() {
         </p>
       </div>
 
-      {/* Story Timeline Cards */}
-      <div className="space-y-4">
+      {/* Story Timeline - Blended with background without card structures */}
+      <div className="space-y-10 divide-y divide-zinc-200/70 dark:divide-zinc-800/70">
         {storySections.map((section, index) => (
           <div
             key={index}
-            className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900/40 hover:bg-zinc-50/70 dark:hover:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all duration-200 shadow-sm space-y-3"
+            className={`flex flex-col sm:flex-row items-start gap-5 sm:gap-7 ${index !== 0 ? "pt-10" : ""} group`}
           >
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-zinc-100 dark:border-zinc-800/80 pb-3">
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-xs text-zinc-600 dark:text-zinc-400 font-semibold bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 rounded border border-zinc-200 dark:border-zinc-700">
+            {/* Avatar Emoji Container - Soft blended squircle */}
+            <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-2xl bg-zinc-100/80 dark:bg-zinc-900/80 p-2 sm:p-2.5 border border-zinc-200/60 dark:border-zinc-800/60 flex items-center justify-center group-hover:scale-105 group-hover:rotate-2 transition-transform duration-300">
+              <img
+                src={section.image}
+                alt={`Avatar illustration for Step ${section.step}`}
+                className="w-full h-full object-contain filter drop-shadow-sm"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Main Content Body */}
+            <div className="space-y-3 flex-1 min-w-0">
+              <div className="flex items-center gap-2.5">
+                <span className="font-mono text-xs text-zinc-600 dark:text-zinc-400 font-semibold bg-zinc-100 dark:bg-zinc-900 px-2.5 py-0.5 rounded-full border border-zinc-200/70 dark:border-zinc-800/70">
                   Step {section.step}
                 </span>
                 <h3 className="font-display font-semibold text-base sm:text-lg text-zinc-900 dark:text-zinc-100">
                   {section.title}
                 </h3>
               </div>
-            </div>
 
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
-              {section.text}
-            </p>
+              <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base leading-relaxed font-normal">
+                {section.text}
+              </p>
 
-            <div className="flex flex-wrap items-center gap-1.5 pt-2">
-              {section.tags.map((tag, tIdx) => (
-                <span
-                  key={tIdx}
-                  className="px-2.5 py-0.5 rounded-full bg-zinc-100 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700/50 text-xs font-mono text-zinc-600 dark:text-zinc-300"
-                >
-                  {tag}
-                </span>
-              ))}
+              <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                {section.tags.map((tag, tIdx) => (
+                  <span
+                    key={tIdx}
+                    className="px-2.5 py-0.5 rounded-full bg-zinc-100/70 dark:bg-zinc-900/70 border border-zinc-200/50 dark:border-zinc-800/50 text-xs font-mono text-zinc-600 dark:text-zinc-400"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         ))}

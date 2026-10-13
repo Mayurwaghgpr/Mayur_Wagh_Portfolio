@@ -156,25 +156,25 @@ export default function Contact() {
             <p className="text-xs text-zinc-500 dark:text-zinc-400">Preferred channels for immediate conversations.</p>
           </div>
 
-          <div className="space-y-3">
+          <div className="divide-y divide-zinc-200/70 dark:divide-zinc-800/70">
             {/* Email */}
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/40 hover:bg-zinc-50/70 dark:hover:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all flex items-center justify-between shadow-sm">
+            <div className="py-3.5 flex items-center justify-between group">
               <a
                 href="mailto:mayur2002wagh@gmail.com"
                 className="flex items-center gap-3.5 flex-1 min-w-0"
               >
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-lg shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
                   <FiMail />
                 </div>
                 <div className="truncate">
-                  <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">Direct Email</h4>
+                  <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">Direct Email</h4>
                   <p className="text-zinc-500 dark:text-zinc-400 text-xs font-mono truncate">mayur2002wagh@gmail.com</p>
                 </div>
               </a>
               <button
                 type="button"
                 onClick={() => copyToClipboard("mayur2002wagh@gmail.com", "email")}
-                className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors ml-2 shrink-0 border border-zinc-200 dark:border-zinc-700/50"
+                className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors ml-2 shrink-0 active:scale-95"
                 title="Copy email address"
               >
                 {copiedKey === "email" ? (
@@ -188,18 +188,18 @@ export default function Contact() {
             </div>
 
             {/* LinkedIn */}
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/40 hover:bg-zinc-50/70 dark:hover:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all flex items-center justify-between shadow-sm">
+            <div className="py-3.5 flex items-center justify-between group">
               <a
                 href="https://linkedin.com/in/mayur-wagh-751b8a24b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3.5 flex-1 min-w-0"
               >
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-lg shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
                   <GrLinkedinOption />
                 </div>
                 <div className="truncate">
-                  <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">LinkedIn</h4>
+                  <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">LinkedIn</h4>
                   <p className="text-zinc-500 dark:text-zinc-400 text-xs font-mono truncate">in/mayur-wagh-751b8a24b</p>
                 </div>
               </a>
@@ -207,25 +207,25 @@ export default function Contact() {
                 href="https://linkedin.com/in/mayur-wagh-751b8a24b/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white text-xs font-medium border border-zinc-200 dark:border-zinc-700/50 ml-2"
+                className="px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white text-xs font-medium ml-2 active:scale-95 transition-all"
               >
                 Connect ↗
               </a>
             </div>
 
             {/* Twitter/X */}
-            <div className="p-4 rounded-xl bg-white dark:bg-zinc-900/40 hover:bg-zinc-50/70 dark:hover:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-700 transition-all flex items-center justify-between shadow-sm">
+            <div className="py-3.5 flex items-center justify-between group">
               <a
                 href="https://twitter.com/mayurwagh152064"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3.5 flex-1 min-w-0"
               >
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-lg shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 flex items-center justify-center text-base shrink-0 group-hover:scale-105 transition-transform">
                   <FaXTwitter />
                 </div>
                 <div className="truncate">
-                  <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100">X (Twitter)</h4>
+                  <h4 className="text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-black dark:group-hover:text-white transition-colors">X (Twitter)</h4>
                   <p className="text-zinc-500 dark:text-zinc-400 text-xs font-mono truncate">@mayurwagh152064</p>
                 </div>
               </a>
@@ -233,7 +233,7 @@ export default function Contact() {
                 href="https://twitter.com/mayurwagh152064"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white text-xs font-medium border border-zinc-200 dark:border-zinc-700/50 ml-2"
+                className="px-3 py-1.5 rounded-lg bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-white text-xs font-medium ml-2 active:scale-95 transition-all"
               >
                 Follow ↗
               </a>
@@ -241,8 +241,8 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right Column: Interactive Form */}
-        <div className="p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+        {/* Right Column: Interactive Form - Blended with background */}
+        <div className="space-y-4">
           {!isSent ? (
             <form onSubmit={handleSendMessage} className="space-y-4">
               <div>
